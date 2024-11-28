@@ -1,0 +1,15 @@
+#header {
+    border: none;
+    position: relative;
+    height: auto;
+    min-height: 175px;
+    background-color: #ce1c75;
+    margin-top: 5px;
+}
+
+#head-title {
+    padding-top: 40px;
+    font-weight: 700;
+    font-size: 45px;
+    color: #fff;
+}
