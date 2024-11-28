@@ -1,15 +1,51 @@
+* {
+    margin: 0;
+    font-family:sans-serif;
+    border: border-box;
+    text-decoration: none;
+body {
+    overflow: scroll;
+    overflow-x: unset;
+    scroll-behavior: smooth;
+    width: 100vw;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
 #header {
     border: none;
     position: relative;
-    height: auto;
-    min-height: 175px;
+    width: 100vw;
+    height: 15vw    ;
     background-color: #ce1c75;
-    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 #head-title {
-    padding-top: 40px;
+    padding-top: 0;
     font-weight: 700;
     font-size: 45px;
     color: #fff;
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-right: 10%;
+}
+
+#about {
+    font-size: 5vmin;
+    color: #fff;
+}
+
+#logo {background-image: url(logo.webp);
+    background-size: cover;
+    width: 15%;
+    height: 95%;
+    border-radius: 50%;
+
 }
