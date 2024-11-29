@@ -5,13 +5,14 @@ body {
     width: 100vw;
     height: auto;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    color: #fff;    
   }
 #header {
     border: none;
     position: relative;
-    width: 100%;
-    height: 15%;
+    width: 100vw;
+    height: 15vw;
     background-color: #ce1c75;
     display: flex;
     align-items: center;
@@ -21,7 +22,7 @@ body {
 #head-title {
     padding-top: 0;
     font-weight: 700;
-    font-size: 45px;
+    font-size: 5vw;
     color: #fff;
     height: 100%;
     width: 60%;
@@ -29,49 +30,64 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-right: ;
+    cursor: default;
+
 }
 
 #about {
-    font-size: 5vmin;
+    font-size: 1.5vw;
     color: #fff;
 }
 
 #logo {background-image: url(logo.webp);
     background-size: cover;
     width: 15%;
-    height: 200%;
-    border-radius: 10%;
+    height: 90%;
+    border-radius: 50%;
 
 }
 
-#contactus {
+#Contactus {
     width: 15%;
+    font-size: 2vw;
+    text-align: center;
+
+}
+#feedback {
+    font-size: 1.5vw;
+    color: rgb(219, 237, 18);
+    text-decoration: underline; 
+}
+
+#feedback:hover {
+    color: aquamarine;
+}
+
+i {
+    color: rgb(11, 214, 18);
 }
  table {
     height: auto;
-    width: 100%;
+    width: 100vw;
 }
 tr {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 95%;
-    height: auto;
-    padding: .5%;
-    
+    width: 100vw;
+    height: 6vw;
+    margin-bottom: 1vw;  
 }
 td {
-    height: 100%;
-    width: 22%;
-    padding: 1%;
-    font-size: 200%;
+    width: 23%;
+    font-size: 2.5vw;
     text-align: center;
-    display: block;
+    height: 5vw;
+    padding: 0;
+    padding-top: .8vw;
 }
 #td2 {
-    padding: 0%;
-    font-size: 165%;
+    font-size: 2vw;
 }
 a {
     text-decoration: none;
