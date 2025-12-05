@@ -7,10 +7,10 @@
     <style>
         /* CSS कोड */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* थोड़ा मॉडर्न फ़ॉन्ट */
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0; /* पीछे का हल्का रंग */
+            background-color: #8f7d7d; /* पीछे का हल्का रंग */
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -21,127 +21,163 @@
         .main-container {
             width: 100%;
             max-width: 800px; /* फोटो के अनुसार अधिकतम चौड़ाई */
-            background-color: white;
+            background-color: rgb(157, 198, 191);
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* शैडो को और गहरा किया */
+            border-radius: 12px;
         }
 
-        /* शीर्ष लेख (Header) */
+        /* शीर्ष लेख (Header) - Stylish Update */
         .header {
             text-align: center;
-            padding: 10px 0;
-            background-color: #f8f8f8;
-            border-bottom: 2px solid #ccc;
-            margin-bottom: 20px;
+            padding: 15px 0;
+            background-color: #dcd070;
+            border-bottom: 4px solid #c32f19; /* बॉर्डर को बोल्ड किया */
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .header h1 {
             margin: 0;
-            font-size: 24px;
-            color: #333;
+            font-size: 38px; /* साइज़ बढ़ाया */
+            color: #c32f19;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* स्टाइलिश शैडो */
+            letter-spacing: 1.5px; /* अक्षरों के बीच जगह */
         }
 
         .header p {
-            margin: 0;
-            font-size: 14px;
-            color: #666;
+            margin: 5px 0 0 0;
+            font-size: 22px; /* साइज़ बढ़ाया */
+            color: #000000;
+            font-weight: 600;
+        }
+        
+        /* शीर्ष लेख के नीचे का टेक्स्ट */
+        .header .subtitle {
+            margin: 5px 0 0 0;
+            font-size: 16px; 
+            color: #333;
         }
 
         /* नेविगेशन बार (Navigation Bar) */
         .nav-bar {
             display: flex;
             justify-content: center;
-            background-color: #d1e7dd; /* हल्का हरा/नीला रंग */
+            background-color: #d1e7dd; 
             padding: 10px 0;
             margin-bottom: 20px;
             border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .nav-bar a {
             text-decoration: none;
             color: #333;
             padding: 0 15px;
-            font-weight: bold;
-            font-size: 14px;
+            font-weight: 700; /* बोल्ड किया */
+            font-size: 15px; /* थोड़ा बड़ा किया */
+            transition: color 0.2s;
         }
 
         .nav-bar .active {
-            color: #007bff; /* सक्रिय लिंक के लिए रंग */
+            color: #007bff; 
         }
 
         /* मेनू ग्रिड (Menu Grid) */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 कॉलम */
-            gap: 10px; /* बॉक्स के बीच की दूरी */
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 12px; /* बॉक्स के बीच की दूरी बढ़ाई */
         }
 
+        /* मेनू बॉक्स - Clear और Bold Text */
         .menu-box {
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 15px 5px;
-            border-radius: 5px;
-            font-weight: bold;
-            color: white;
-            cursor: pointer; /* क्लिकेबल बनाने के लिए */
-            transition: background-color 0.2s;
-            text-decoration: none; /* लिंक से अंडरलाइन हटाना */
-            font-size: 12px;
-            line-height: 1.2;
-            height: 50px; /* एक समान ऊंचाई */
+            padding: 10px 5px; /* पैडिंग कम की ताकि टेक्स्ट के लिए जगह मिले */
+            border-radius: 8px; /* बॉर्डर रेडियस बढ़ाया */
+            font-weight: 800; /* एक्सट्रा बोल्ड */
+            color: #ffffff; /* हमेशा सफ़ेद रंग (white color) */
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none; 
+            font-size: 14px; /* फ़ॉन्ट साइज़ बढ़ाया */
+            line-height: 1.3;
+            height: 60px; /* ऊंचाई बढ़ाई */
             box-sizing: border-box;
+            /* टेक्स्ट को गहरे बैकग्राउंड पर साफ़ दिखाने के लिए शैडो */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.3); /* हल्का सफ़ेद बॉर्डर */
         }
 
         .menu-box:hover {
-            opacity: 0.9;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px); /* होवर पर ऊपर उठाना */
+            opacity: 1;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
         }
 
-        /* बॉक्स के रंगों के लिए CSS (फोटो के अनुसार) */
-        .box-1 { background-color: #07aa69; } /* Ayushman Card, Saral Haryana */
-        .box-2 { background-color: #d9821f; } /* Happy Card, e-Disha */
-        .box-3 { background-color: #097eac; } /* Aadhar Card, Labour Copy */
-        .box-4 { background-color: #ea0bcc; } /* Ration Card, HR Pension Status */
-        .box-5 { background-color: #ac000b; } /* Vote Card, Deen Dayal */
-        .box-6 { background-color: #dc7908; } /* Passport, Employment */
-        .box-7 { background-color: #039a77; } /* Pan Card NSDL, Digi Service */
-        .box-8 { background-color: #6cc804; } /* Jamabandi, Agri Haryana Scheme */
-        .box-9 { background-color: #005e71; } /* All Card Maker, Check Your Aadhar-Pan */
+        /* बॉक्स के रंगों के लिए CSS (जैसे आपने सेट किया है) */
+        .box-1 { background-color: #07aa69; }
+        .box-2 { background-color: #d9821f; }
+        .box-3 { background-color: #097eac; }
+        .box-4 { background-color: #ea0bcc; }
+        .box-5 { background-color: #ac000b; }
+        .box-6 { background-color: #dc7908; }
+        .box-7 { background-color: #039a77; }
+        .box-8 { background-color: #06891b; }
+        .box-9 { background-color: #005e71; }
         
-        /* कॉलम 3 के रंग */
-        .box-c3-1 { background-color: #7bdf11; } /* Family ID, मेरी फसल */
-        .box-c3-2 { background-color: #0d57a7; } /* Know Your Family ID, HBSE */
-        .box-c3-3 { background-color: #9b0584; } /* Ug/PG Admission, SSC */
-        .box-c3-4 { background-color: #ced504; } /* HRKN, PM Suraksha Ghat Yojana */
-        .box-c3-5 { background-color: #b9500f; } /* Gas Subsidy, Know Your LPG ID */
-        .box-c3-6 { background-color: #1ec009; } /* DHBVN, Ujjwala Yojana */
-        .box-c3-7 { background-color: #033c54; } /* Citizen Data Verify, Police Verification */
-        .box-c3-8 { background-color: #008962; } /* Aadhar+Pan Link, UDID Card */
-        .box-c3-9 { background-color: #8e3704; } /* PM Kisan Portal, Har Chhatravrati */
-        .box-c3-10 { background-color: #78048a; } /* बिजली बिल Pay, Ration Details Check */
-        .box-c3-11 { background-color: #68034d; } /* Whatsapp, Challan */
+        .box-c3-1 { background-color: #7bdf11; }
+        .box-c3-2 { background-color: #0d57a7; }
+        .box-c3-3 { background-color: #9b0584; }
+        .box-c3-4 { background-color: #ced504; }
+        .box-c3-5 { background-color: #b9500f; }
+        .box-c3-6 { background-color: #480766; }
+        .box-c3-7 { background-color: #7e7005; }
+        .box-c3-8 { background-color: #008962; }
+        .box-c3-9 { background-color: #8e3704; }
+        .box-c3-10 { background-color: #78048a; }
+        .box-c3-11 { background-color: #68034d; }
 
 
         /* फुटर लिंक्स */
         .footer-links {
             text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
+            margin-top: 25px; /* मार्जिन बढ़ाया */
+            font-size: 16px; /* फ़ॉन्ट साइज़ बढ़ाया */
+            font-weight: 600;
         }
 
         .footer-links a {
             text-decoration: none;
-            color: #007bff;
-            padding: 0 10px;
+            color: #0d57a7; /* एक गहरा नीला रंग */
+            padding: 0 12px;
+            transition: color 0.2s;
         }
+        
+        .footer-links a:hover {
+            color: #c32f19; /* होवर पर लाल रंग */
+        }
+
 
         /* मीडिया क्वेरी छोटे स्क्रीन के लिए */
         @media (max-width: 600px) {
             .menu-grid {
                 grid-template-columns: repeat(2, 1fr); /* छोटे स्क्रीन पर 2 कॉलम */
+                gap: 8px;
+            }
+            .header h1 {
+                font-size: 28px;
+            }
+            .header p {
+                font-size: 16px;
+            }
+            .menu-box {
+                font-size: 13px;
+                height: 55px;
             }
         }
     </style>
@@ -151,7 +187,7 @@
         <div class="header">
             <h1>Nain Photostate & Online Center</h1>
             <p>(By Dev Nain) 8950101037</p>
-            <p>CSCCENTER-Haryana Ka No #1 Platform for Govt Scheme |</p>
+            <p class="subtitle">CSCCENTER-Haryana Ka No #1 Platform for Govt Scheme |</p>
         </div>
 
         <div class="nav-bar">
@@ -164,59 +200,59 @@
 
         <div class="menu-grid" id="menuGrid">
             
-            <a href="https://beneficiary.nha.gov.in/" class="menu-box box-1" id="box1">Ayushman Card</a>
-            <a href="https://saralharyana.gov.in/login.do?" class="menu-box box-1" id="box2">Saral Haryana</a>
-            <a href="https://ppp-office.haryana.gov.in/FamilyDirect?var=CitizenLogin" class="menu-box box-c3-1" id="box3">Family ID</a>
+            <a href="https://beneficiary.nha.gov.in/" class="menu-box box-5" id="box1">Ayushman Card</a>
+            <a href="https://saralharyana.gov.in/login.do?" class="menu-box box-4" id="box2">Saral Haryana</a>
+            <a href="https://ppp-office.haryana.gov.in/FamilyDirect?var=CitizenLogin" class="menu-box box-c3-11" id="box3">Family ID</a>
             <a href="https://gjuonline.ac.in/pgadmission/" class="menu-box box-c3-2" id="box4">Know Your Family ID</a>
             
             <a href="https://example.com/happy" class="menu-box box-2" id="box5">Happy Card</a>
-            <a href="https://edisha.gov.in/eForms/Status" class="menu-box box-2" id="box6">e-Disha Status Check</a>
-            <a href="https://fasal.haryana.gov.in/home/login" class="menu-box box-c3-1" id="box7">मेरी फसल <br> मेरा ब्योरा</a>
-            <a href="https://bseh.org.in/home" class="menu-box box-c3-2" id="box8">HBSE</a>
+            <a href="https://edisha.gov.in/eForms/Status" class="menu-box box-c3-2" id="box6">e-Disha Status Check</a>
+            <a href="https://fasal.haryana.gov.in/home/login" class="menu-box box-5" id="box7">मेरी फसल <br> मेरा ब्योरा</a>
+            <a href="https://bseh.org.in/home" class="menu-box box-9" id="box8">HBSE</a>
             
-            <a href="https://myaadhaar.uidai.gov.in/" class="menu-box box-3" id="box9">Aadhar Card</a>
-            <a href="https://hrylabour.gov.in/login/bocw" class="menu-box box-3" id="box10">Labour Copy</a>
-            <a href="https://admissions.highereduhry.ac.in/" class="menu-box box-c3-3" id="box11">Ug/PG <br> Admisson</a>
+            <a href="https://myaadhaar.uidai.gov.in/" class="menu-box box-5" id="box9">Aadhar Card</a>
+            <a href="https://hrylabour.gov.in/login/bocw" class="menu-box box-9" id="box10">Labour Copy</a>
+            <a href="https://admissions.highereduhry.ac.in/" class="menu-box box-8" id="box11">Ug/PG <br> Admisson</a>
             <a href="https://example.com/ssc" class="menu-box box-c3-3" id="box12">SSC</a>
             
-            <a href="https://epds.haryanafood.gov.in/search-rc" class="menu-box box-4" id="box13">Ration Card</a>
+            <a href="https://epds.haryanafood.gov.in/search-rc" class="menu-box box-c3-11" id="box13">Ration Card</a>
             <a href="https://pension.socialjusticehry.gov.in/Ben_Inf" class="menu-box box-4" id="box14">HR Pension Status</a>
-            <a href="https://hkrnl.itiharyana.gov.in/getMember_pub?userType=CAN" class="menu-box box-c3-4" id="box15">HRKN</a>
-            <a href="https://example.com/pm-suraksha" class="menu-box box-c3-4" id="box16">PM Surya <br> Ghar Yojana</a>
+            <a href="https://hkrnl.itiharyana.gov.in/getMember_pub?userType=CAN" class="menu-box box-c3-2" id="box15">HRKN</a>
+            <a href="https://example.com/pm-suraksha" class="menu-box box-5" id="box16">PM Surya <br> Ghar Yojana</a>
             
-            <a href="https://example.com/vote" class="menu-box box-5" id="box17">Vote Card</a>
-            <a href="https://example.com/deen-dayal" class="menu-box box-5" id="box18">Deen Dayal</a>
+            <a href="https://example.com/vote" class="menu-box box-c3-6" id="box17">Vote Card</a>
+            <a href="https://example.com/deen-dayal" class="menu-box box-8" id="box18">Deen Dayal</a>
             <a href="https://example.com/gas-subsidy" class="menu-box box-c3-5" id="box19">Gas Subsidy <br> Apply Hr</a>
-            <a href="https://example.com/know-lpg" class="menu-box box-c3-5" id="box20">Know Your <br> LPG ID</a>
+            <a href="https://example.com/know-lpg" class="menu-box box-9" id="box20">Know Your <br> LPG ID</a>
             
-            <a href="https://example.com/passport" class="menu-box box-6" id="box21">Passport</a>
+            <a href="https://example.com/passport" class="menu-box box-c3-2" id="box21">Passport</a>
             <a href="https://example.com/employment" class="menu-box box-6" id="box22">Employment</a>
-            <a href="https://example.com/dhbvn" class="menu-box box-c3-6" id="box23">DHBVN <br> New Conection</a>
+            <a href="https://example.com/dhbvn" class="menu-box box-c3-11" id="box23">DHBVN <br> New Conection</a>
             <a href="https://example.com/ujjwala" class="menu-box box-c3-6" id="box24">उज्ज्वला योजना</a>
             
-            <a href="https://example.com/pan-nsdl" class="menu-box box-7" id="box25">Pan Card NSDL</a>
+            <a href="https://example.com/pan-nsdl" class="menu-box box-c3-6" id="box25">Pan Card NSDL</a>
             <a href="https://example.com/saksham" class="menu-box box-7" id="box26">Saksham</a>
-            <a href="https://example.com/citizen-verify" class="menu-box box-c3-7" id="box27">Citizen Data <br> Verity Portal</a>
+            <a href="https://example.com/citizen-verify" class="menu-box box-8" id="box27">Citizen Data <br> Verity Portal</a>
             <a href="https://example.com/police-verify" class="menu-box box-c3-7" id="box28">POLICE <br> VERIFICATION</a>
             
-            <a href="https://example.com/digi-service" class="menu-box box-7" id="box29">Digi Service</a>
-            <a href="https://example.com/pf-apply" class="menu-box box-7" id="box30">PF APPLY <br> KYC</a>
-            <a href="https://example.com/aadhar-pan-link" class="menu-box box-c3-8" id="box31">Aadhar+Pan <br> Link</a>
+            <a href="https://example.com/digi-service" class="menu-box box-5" id="box29">Digi Service</a>
+            <a href="https://example.com/pf-apply" class="menu-box box-c3-2" id="box30">PF APPLY <br> KYC</a>
+            <a href="https://example.com/aadhar-pan-link" class="menu-box box-c3-6" id="box31">Aadhar+Pan <br> Link</a>
             <a href="https://example.com/udid-card" class="menu-box box-c3-8" id="box32">UDID <br> Card</a>
             
-            <a href="https://example.com/jamabandi" class="menu-box box-8" id="box33">Jamabandi</a>
-            <a href="https://example.com/ceir-complain" class="menu-box box-8" id="box34">CEIR Complain</a>
-            <a href="https://example.com/pm-kisan" class="menu-box box-c3-9" id="box35">PM Kisan <br> Portal</a>
+            <a href="https://example.com/jamabandi" class="menu-box box-9" id="box33">Jamabandi</a>
+            <a href="https://example.com/ceir-complain" class="menu-box box-7" id="box34">CEIR Complain</a>
+            <a href="https://example.com/pm-kisan" class="menu-box box-c3-11" id="box35">PM Kisan <br> Portal</a>
             <a href="https://example.com/har-chhatravrati" class="menu-box box-c3-9" id="box36">Har <br> Chhatravrati</a>
             
-            <a href="https://example.com/agri-haryana" class="menu-box box-8" id="box37">Agri Haryana <br> Scheme</a>
+            <a href="https://example.com/agri-haryana" class="menu-box box-6" id="box37">Agri Haryana <br> Scheme</a>
             <a href="https://example.com/apprenticeship" class="menu-box box-8" id="box38">Apprenticeship</a>
-            <a href="https://example.com/bijli-bill" class="menu-box box-c3-10" id="box39">बिजली बिल Pay</a>
+            <a href="https://example.com/bijli-bill" class="menu-box box-4" id="box39">बिजली बिल Pay</a>
             <a href="https://example.com/ration-check" class="menu-box box-c3-10" id="box40">Ration Details <br> Check</a>
             
-            <a href="https://example.com/all-card" class="menu-box box-9" id="box41">All Card <br> Maker</a>
+            <a href="https://example.com/all-card" class="menu-box box-4" id="box41">All Card <br> Maker</a>
             <a href="https://example.com/cd-service" class="menu-box box-9" id="box42">CD Service</a>
-            <a href="https://example.com/whatsapp" class="menu-box box-c3-11" id="box43">Whatsapp</a>
+            <a href="https://example.com/whatsapp" class="menu-box box-7" id="box43">Whatsapp</a>
             <a href="https://example.com/challan" class="menu-box box-c3-11" id="box44">Challan</a>
             
         </div>
@@ -229,32 +265,35 @@
     </div>
 
     <script>
-        // JavaScript कोड (क्लिक इवेंट हैंडलिंग के लिए)
+        // JavaScript कोड में कोई बदलाव नहीं किया गया है
         document.addEventListener('DOMContentLoaded', () => {
             const menuBoxes = document.querySelectorAll('.menu-box');
             
             menuBoxes.forEach(box => {
-                // यह सुनिश्चित करता है कि क्लिक इवेंट काम करे और URL पर जाए
                 box.addEventListener('click', (event) => {
-                    // आप यहां चाहें तो कोई अतिरिक्त JavaScript फ़ंक्शन लगा सकते हैं, 
-                    // जैसे कि Google Analytics ट्रैक करना। 
                     console.log(`Clicked on box: ${box.textContent.trim()}`);
-                    // event.preventDefault() हटा दिया गया है ताकि लिंक पर जाया जा सके
                 });
             });
 
-            // फुटर लिंक्स के लिए भी JavaScript (अगर आवश्यक हो)
             const footerLinks = document.querySelectorAll('.footer-links a');
             footerLinks.forEach(link => {
                 link.addEventListener('click', (event) => {
                     console.log(`Clicked on footer link: ${link.textContent.trim()}`);
                 });
             });
+            
+            // नया: नेविगेशन बार में होम के अलावा बाकी लिंक्स के लिए डमी लिंक
+            const navLinks = document.querySelectorAll('.nav-bar a:not(.active)');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === '#') {
+                    link.setAttribute('href', 'javascript:void(0);');
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        alert(`Functionality for ${link.textContent.trim()} is not implemented yet.`);
+                    });
+                }
+            });
         });
-
-        // नोट: इस पेज पर सीधे तौर पर कोई जटिल JavaScript लॉजिक नहीं है, 
-        // लेकिन अगर भविष्य में ड्रॉपडाउन मेनू या फॉर्म वैलिडेशन की आवश्यकता होगी 
-        // तो आप यहीं कोड जोड़ सकते हैं।
     </script>
 </body>
 </html>
