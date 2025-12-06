@@ -1,3 +1,10 @@
+समझ गया। मैंने **"Smart Action Bar"** और बाकी सब कुछ बिल्कुल वैसा ही रखा है।
+
+सिर्फ **नीचे वाले सारे बॉक्स (Service Links)** में `target="_blank"` जोड़ दिया है। अब जब भी कोई किसी बॉक्स पर क्लिक करेगा, वह **नयी टैब (New Tab)** में खुलेगा और आपकी वेबसाइट बंद नहीं होगी।
+
+यह रहा पूरा कोड, इसे कॉपी करें और `index.html` में पेस्ट करें:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +49,7 @@
             border-radius: 16px;
         }
 
-        /* Header Styles - SAME AS ORIGINAL */
+        /* Header Styles */
         .header {
             text-align: center;
             padding: 20px 0;
@@ -72,7 +79,7 @@
             color: #6c757d !important;
         }
 
-        /* --- NEW SMART ACTION BAR (Single Row) --- */
+        /* --- SMART ACTION BAR (Single Row) --- */
         .smart-bar {
             display: flex;
             justify-content: space-between;
@@ -313,136 +320,136 @@
 
         <div class="menu-grid" id="menuGrid">
             
-            <a href="https://beneficiary.nha.gov.in/" class="menu-box">
+            <a href="https://beneficiary.nha.gov.in/" class="menu-box" target="_blank">
                 <i class="fas fa-heartbeat"></i> <span>Ayushman Card</span>
             </a>
-            <a href="https://saralharyana.gov.in/login.do?" class="menu-box">
+            <a href="https://saralharyana.gov.in/login.do?" class="menu-box" target="_blank">
                 <i class="fas fa-laptop-house"></i> <span>Saral Haryana</span>
             </a>
-            <a href="https://ppp-office.haryana.gov.in/FamilyDirect?var=CitizenLogin" class="menu-box">
+            <a href="https://ppp-office.haryana.gov.in/FamilyDirect?var=CitizenLogin" class="menu-box" target="_blank">
                 <i class="fas fa-users"></i> <span>Family ID</span>
             </a>
-            <a href="https://gjuonline.ac.in/pgadmission/" class="menu-box">
+            <a href="https://gjuonline.ac.in/pgadmission/" class="menu-box" target="_blank">
                 <i class="fas fa-search-plus"></i> <span>Know Your Family ID</span>
             </a>
-            <a href="https://example.com/happy" class="menu-box">
+            <a href="https://example.com/happy" class="menu-box" target="_blank">
                 <i class="fas fa-smile-beam"></i> <span>Happy Card</span>
             </a>
-            <a href="https://edisha.gov.in/eForms/Status" class="menu-box">
+            <a href="https://edisha.gov.in/eForms/Status" class="menu-box" target="_blank">
                 <i class="fas fa-file-contract"></i> <span>e-Disha Status Check</span>
             </a>
-            <a href="https://fasal.haryana.gov.in/home/login" class="menu-box">
+            <a href="https://fasal.haryana.gov.in/home/login" class="menu-box" target="_blank">
                 <i class="fas fa-seedling"></i> <span>मेरी फसल मेरा ब्योरा</span>
             </a>
-            <a href="https://bseh.org.in/home" class="menu-box">
+            <a href="https://bseh.org.in/home" class="menu-box" target="_blank">
                 <i class="fas fa-book-reader"></i> <span>HBSE</span>
             </a>
-            <a href="https://myaadhaar.uidai.gov.in/" class="menu-box">
+            <a href="https://myaadhaar.uidai.gov.in/" class="menu-box" target="_blank">
                 <i class="fas fa-fingerprint"></i> <span>Aadhar Card</span>
             </a>
-            <a href="https://hrylabour.gov.in/login/bocw" class="menu-box">
+            <a href="https://hrylabour.gov.in/login/bocw" class="menu-box" target="_blank">
                 <i class="fas fa-hard-hat"></i> <span>Labour Copy</span>
             </a>
-            <a href="https://admissions.highereduhry.ac.in/" class="menu-box">
+            <a href="https://admissions.highereduhry.ac.in/" class="menu-box" target="_blank">
                 <i class="fas fa-user-graduate"></i> <span>UG/PG Admission</span>
             </a>
-            <a href="https://ssc.gov.in/login" class="menu-box">
+            <a href="https://ssc.gov.in/login" class="menu-box" target="_blank">
                 <i class="fas fa-briefcase"></i> <span>SSC</span>
             </a>
-            <a href="https://epds.haryanafood.gov.in/search-rc" class="menu-box">
+            <a href="https://epds.haryanafood.gov.in/search-rc" class="menu-box" target="_blank">
                 <i class="fas fa-utensils"></i> <span>Ration Card</span>
             </a>
-            <a href="https://pension.socialjusticehry.gov.in/Ben_Inf" class="menu-box">
+            <a href="https://pension.socialjusticehry.gov.in/Ben_Inf" class="menu-box" target="_blank">
                 <i class="fas fa-blind"></i> <span>HR Pension Status</span>
             </a>
-            <a href="https://hkrnl.itiharyana.gov.in/getMember_pub?userType=CAN" class="menu-box">
+            <a href="https://hkrnl.itiharyana.gov.in/getMember_pub?userType=CAN" class="menu-box" target="_blank">
                 <i class="fas fa-network-wired"></i> <span>HRKN</span>
             </a>
-            <a href="https://pmuy.gov.in/ujjwala2.html" class="menu-box">
+            <a href="https://pmuy.gov.in/ujjwala2.html" class="menu-box" target="_blank">
                 <i class="fas fa-burn"></i> <span>उज्ज्वला योजना</span>
             </a>
-            <a href="https://voters.eci.gov.in/login" class="menu-box">
+            <a href="https://voters.eci.gov.in/login" class="menu-box" target="_blank">
                 <i class="fas fa-vote-yea"></i> <span>Vote Card</span>
             </a>
-            <a href="https://dapsy.finhry.gov.in/get-family-id" class="menu-box">
+            <a href="https://dapsy.finhry.gov.in/get-family-id" class="menu-box" target="_blank">
                 <i class="fas fa-home"></i> <span>Deen Dayal</span>
             </a>
-            <a href="https://epds.haryanafood.gov.in/account/lpg" class="menu-box">
+            <a href="https://epds.haryanafood.gov.in/account/lpg" class="menu-box" target="_blank">
                 <i class="fas fa-gas-pump"></i> <span>Gas Subsidy Apply</span>
             </a>
-            <a href="lpg_services.html" class="menu-box">
+            <a href="lpg_services.html" class="menu-box" target="_blank">
                 <i class="fas fa-fire"></i> <span>Know Your LPG ID</span>
             </a>
-            <a href="https://www.passportindia.gov.in/psp" class="menu-box">
+            <a href="https://www.passportindia.gov.in/psp" class="menu-box" target="_blank">
                 <i class="fas fa-passport"></i> <span>Passport</span>
             </a>
-            <a href="https://hrex.gov.in/login" class="menu-box">
+            <a href="https://hrex.gov.in/login" class="menu-box" target="_blank">
                 <i class="fas fa-handshake"></i> <span>Employment</span>
             </a>
-            <a href="https://econnection.dhbvn.org.in/" class="menu-box">
+            <a href="https://econnection.dhbvn.org.in/" class="menu-box" target="_blank">
                 <i class="fas fa-bolt"></i> <span>DHBVN New Connection</span>
             </a>
-            <a href="https://www.dhbvn.org.in/web/portal/auth" class="menu-box">
+            <a href="https://www.dhbvn.org.in/web/portal/auth" class="menu-box" target="_blank">
                 <i class="fas fa-plug"></i> <span>DHBVN Login</span>
             </a>
-            <a href="https://onlineservices.proteantech.in/paam/endUserRegisterContact.html" class="menu-box">
+            <a href="https://onlineservices.proteantech.in/paam/endUserRegisterContact.html" class="menu-box" target="_blank">
                 <i class="fas fa-id-card"></i> <span>Pan Card NSDL</span>
             </a>
-            <a href="https://hreyahs.gov.in/parvesh" class="menu-box">
+            <a href="https://hreyahs.gov.in/parvesh" class="menu-box" target="_blank">
                 <i class="fas fa-chalkboard-teacher"></i> <span>Saksham</span>
             </a>
-            <a href="https://www.photopea.com/" class="menu-box">
+            <a href="https://www.photopea.com/" class="menu-box" target="_blank">
                 <i class="fas fa-camera"></i> <span>Photo Maker</span>
             </a>
-            <a href="https://haryanapolice.gov.in/" class="menu-box">
+            <a href="https://haryanapolice.gov.in/" class="menu-box" target="_blank">
                 <i class="fas fa-shield-alt"></i> <span>Police Verification</span>
             </a>
-            <a href="https://connect.csc.gov.in/account/authorize?response_type=code&client_id=0f8ca686-5a31-46b8-bb51-d9834ba9fa9d&redirect_uri=https%3A%2F%2Fdigitalseva.csc.gov.in%2Fauth%2Fcallback%2F&state=70007" class="menu-box">
+            <a href="https://connect.csc.gov.in/account/authorize?response_type=code&client_id=0f8ca686-5a31-46b8-bb51-d9834ba9fa9d&redirect_uri=https%3A%2F%2Fdigitalseva.csc.gov.in%2Fauth%2Fcallback%2F&state=70007" class="menu-box" target="_blank">
                 <i class="fas fa-globe"></i> <span>Digital Seva</span>
             </a>
-            <a href="https://unifiedportal-mem.epfindia.gov.in/memberinterface/" class="menu-box">
+            <a href="https://unifiedportal-mem.epfindia.gov.in/memberinterface/" class="menu-box" target="_blank">
                 <i class="fas fa-piggy-bank"></i> <span>PF Apply / KYC</span>
             </a>
-            <a href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/bl-link-aadhaar" class="menu-box">
+            <a href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/bl-link-aadhaar" class="menu-box" target="_blank">
                 <i class="fas fa-link"></i> <span>Aadhar+Pan Link</span>
             </a>
-            <a href="https://swavlambancard.gov.in/" class="menu-box">
+            <a href="https://swavlambancard.gov.in/" class="menu-box" target="_blank">
                 <i class="fas fa-wheelchair"></i> <span>UDID Card</span>
             </a>
-            <a href="https://jamabandi.nic.in/land%20records/NakalRecord" class="menu-box">
+            <a href="https://jamabandi.nic.in/land%20records/NakalRecord" class="menu-box" target="_blank">
                 <i class="fas fa-map-marked-alt"></i> <span>Jamabandi</span>
             </a>
-            <a href="https://www.ceir.gov.in/Home/index.jsp" class="menu-box">
+            <a href="https://www.ceir.gov.in/Home/index.jsp" class="menu-box" target="_blank">
                 <i class="fas fa-mobile-alt"></i> <span>CEIR Complain</span>
             </a>
-            <a href="https://pmkisan.gov.in/" class="menu-box">
+            <a href="https://pmkisan.gov.in/" class="menu-box" target="_blank">
                 <i class="fas fa-tractor"></i> <span>PM Kisan Portal</span>
             </a>
-            <a href="https://harchhatravratti.highereduhry.ac.in/" class="menu-box">
+            <a href="https://harchhatravratti.highereduhry.ac.in/" class="menu-box" target="_blank">
                 <i class="fas fa-graduation-cap"></i> <span>Har Chhatravrati</span>
             </a>
-            <a href="https://agriharyana.gov.in/FarmerLogin" class="menu-box">
+            <a href="https://agriharyana.gov.in/FarmerLogin" class="menu-box" target="_blank">
                 <i class="fas fa-leaf"></i> <span>Agri Haryana</span>
             </a>
-            <a href="https://www.apprenticeshipindia.gov.in/login" class="menu-box">
+            <a href="https://www.apprenticeshipindia.gov.in/login" class="menu-box" target="_blank">
                 <i class="fas fa-tools"></i> <span>Apprenticeship</span>
             </a>
-            <a href="https://epayment.dhbvn.org.in/b2csearch.aspx" class="menu-box">
+            <a href="https://epayment.dhbvn.org.in/b2csearch.aspx" class="menu-box" target="_blank">
                 <i class="fas fa-file-invoice-dollar"></i> <span>बिजली बिल Pay</span>
             </a>
-            <a href="https://epos.haryanafood.gov.in/SRC_Trans_Int" class="menu-box">
+            <a href="https://epos.haryanafood.gov.in/SRC_Trans_Int" class="menu-box" target="_blank">
                 <i class="fas fa-list-alt"></i> <span>Ration Details</span>
             </a>
-            <a href="https://idcard.store/u/all_cards#google_vignette" class="menu-box">
+            <a href="https://idcard.store/u/all_cards#google_vignette" class="menu-box" target="_blank">
                 <i class="fas fa-print"></i> <span>All Card Maker</span>
             </a>
-            <a href="http://hry.cdservice.in/Home/HRLogin" class="menu-box">
+            <a href="http://hry.cdservice.in/Home/HRLogin" class="menu-box" target="_blank">
                 <i class="fas fa-city"></i> <span>CD Service</span>
             </a>
-            <a href="https://web.whatsapp.com/" class="menu-box">
+            <a href="https://web.whatsapp.com/" class="menu-box" target="_blank">
                 <i class="fab fa-whatsapp"></i> <span>Whatsapp</span>
             </a>
-            <a href="https://echallan.parivahan.gov.in/index/accused-challan" class="menu-box">
+            <a href="https://echallan.parivahan.gov.in/index/accused-challan" class="menu-box" target="_blank">
                 <i class="fas fa-receipt"></i> <span>Challan</span>
             </a>
 
@@ -457,7 +464,7 @@
     </div>
 
     <script>
-        // --- 1. SHOP STATUS LOGIC (Updated for Smart Bar) ---
+        // --- 1. SHOP STATUS LOGIC ---
         const isOwnerOut = false; // <-- CHANGE TO true WHEN YOU GO OUT
 
         const now = new Date();
@@ -521,3 +528,4 @@
     
 </body>
 </html>
+```
