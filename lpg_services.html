@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nain Photostate - Find LPG ID</title>
+    <style>
+        /* --- CSS: होम पेज जैसा ही स्टाइल --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #8f7d7d;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 20px;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: rgb(157, 198, 191);
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            min-height: 80vh; /* पेज की ऊंचाई थोड़ी बढ़ाई ताकि खाली न लगे */
+        }
+
+        .header {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #dcd070;
+            border-bottom: 4px solid #c32f19;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 38px;
+            color: #c32f19;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1.5px;
+        }
+
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 22px;
+            color: #000000;
+            font-weight: 600;
+        }
+
+        .header .subtitle {
+            font-size: 18px;
+            margin-top: 5px;
+            color: #333;
+        }
+
+        /* नेविगेशन बार */
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            background-color: #d1e7dd; 
+            padding: 10px 0;
+            margin-bottom: 40px; /* थोड़ा गैप बढ़ाया */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: #333;
+            padding: 0 15px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        /* 3 बॉक्स के लिए ग्रिड */
+        .lpg-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* एक लाइन में 3 बॉक्स */
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .menu-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 800;
+            color: #ffffff;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none; 
+            font-size: 18px; /* फोंट थोड़ा बड़ा */
+            height: 100px; /* बॉक्स थोड़ा बड़ा */
+            box-sizing: border-box;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* कंपनियों के लिए अलग रंग */
+        .box-bharat { background-color: #005e71; } /* नीला */
+        .box-hp { background-color: #d11f1f; }     /* लाल */
+        .box-indane { background-color: #d9821f; } /* संतरी */
+
+        /* मोबाइल सेटिंग्स */
+        @media (max-width: 600px) {
+            .lpg-grid {
+                grid-template-columns: 1fr; /* मोबाइल में एक के नीचे एक */
+                gap: 15px;
+                padding: 0 20px; /* साइड से थोड़ी जगह */
+            }
+            .header h1 { font-size: 28px; }
+            .header p { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <h1>Nain Photostate & Online Center</h1>
+            <p>(By Dev Nain) 8950101037</p>
+            <p class="subtitle">Select Your Gas Provider</p>
+        </div>
+
+        <div class="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="offline_forms.html">Offline forms</a>
+        </div>
+
+        <div class="lpg-grid">
+            
+            <a href="https://my.ebharatgas.com/bharatgas/LPGServices/FindLPGID" target="_blank" class="menu-box box-bharat">
+                Bharat Gas<br>(Find LPG ID)
+            </a>
+
+            <a href="https://myhpgas.in/myHPGas/HPGas/FindYourLPGID.aspx" target="_blank" class="menu-box box-hp">
+                HP Gas<br>(Find LPG ID)
+            </a>
+
+            <a href="https://cx.indianoil.in/webcenter/portal/LPG/pages_findyourlpgid" target="_blank" class="menu-box box-indane">
+                Indane Gas<br>(Find LPG ID)
+            </a>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="index.html" style="color: #c32f19; font-weight: bold; text-decoration: none; font-size: 18px;">&larr; Back to Home Page</a>
+        </div>
+
+    </div>
+</body>
+</html>
