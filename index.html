@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nain Photostate & Online Center</title>
     <meta name="description" content="Nain Photostate & Online Center, Dhanauda. Apply for Aadhar Card, Family ID, Pan Card, Ration Card, and all Haryana Govt Schemes online. Best CSC Center in Jind.">
-<meta name="keywords" content="Nain Photostate, CSC Center Danoda, Online Forms Haryana, Family ID Correction, Aadhar Card Center, Dev Nain, Danoda Kalan">
-<meta name="author" content="Dev Nain">
-    <link rel="icon" type="image/png" href="favicon.png.ico">
+    <meta name="keywords" content="Nain Photostate, CSC Center Danoda, Online Forms Haryana, Family ID Correction, Aadhar Card Center, Dev Nain, Danoda Kalan">
+    <meta name="author" content="Dev Nain">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -42,12 +42,12 @@
             border-radius: 16px;
         }
 
-        /* Header Styles */
+        /* Header Styles - SAME AS ORIGINAL */
         .header {
             text-align: center;
             padding: 20px 0;
             border-bottom: 1px solid #dee2e6;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .header h1 {
@@ -72,45 +72,60 @@
             color: #6c757d !important;
         }
 
-        /* Navigation Bar (Menu Tab) - Restored & Styled */
-        /* नेविगेशन बार को Sticky बनाने के लिए Updated CSS */
-.nav-bar {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    background: rgba(255, 255, 255, 0.95); /* थोड़ा पारदर्शी बैकग्राउंड */
-    padding: 10px;
-    border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    margin-bottom: 25px;
-    border: 1px solid #e9ecef;
-    
-    /* यहाँ Sticky कोड जोड़ा गया है */
-    position: sticky; 
-    top: 10px; /* ऊपर से 10px की दूरी पर रुक जाएगा */
-    z-index: 1000; /* बाकी चीजों के ऊपर रहेगा */
-    backdrop-filter: blur(5px); /* पीछे का कंटेंट धुंधला दिखेगा */
-}
+        /* --- NEW SMART ACTION BAR (Single Row) --- */
+        .smart-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            padding: 8px 15px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            border: 1px solid #e9ecef;
+            position: sticky; 
+            top: 10px; 
+            z-index: 1000;
+        }
 
-        .nav-bar a {
+        /* Left: Menu Icons */
+        .bar-left { display: flex; gap: 8px; }
+        .nav-icon {
+            width: 35px; height: 35px;
+            border-radius: 50%;
+            background: #f0f2f5;
+            color: #444;
+            display: flex; align-items: center; justify-content: center;
             text-decoration: none;
-            color: var(--text-dark);
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.3s;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+        .nav-icon.active, .nav-icon:hover {
+            background: var(--primary-color);
+            color: white;
         }
 
-        .nav-bar a:hover {
-            background-color: #e9ecef;
-            color: var(--primary-color);
+        /* Center: Status */
+        .bar-center {
+            text-align: center;
+        }
+        .status-badge {
+            font-size: 12px; font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
         }
 
-        .nav-bar a.active {
-            background-color: var(--primary-color);
-            color: #fff;
-            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+        /* Right: WhatsApp */
+        .bar-right a {
+            text-decoration: none;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 13px; font-weight: 600;
+            display: flex; align-items: center; gap: 5px;
+            box-shadow: 0 2px 5px rgba(37, 211, 102, 0.3);
         }
 
         /* News Ticker */
@@ -248,8 +263,11 @@
             .menu-box i { font-size: 22px; }
             .menu-box span { font-size: 11px; }
             .header h1 { font-size: 26px; }
-            .nav-bar { padding: 8px; }
-            .nav-bar a { padding: 8px 15px; font-size: 13px; }
+            
+            /* Mobile tweaks for Smart Bar */
+            .smart-bar { padding: 8px 10px; }
+            .wa-text { display: none; } /* Mobile par text hide karega */
+            .bar-right a { padding: 8px; border-radius: 50%; width: 35px; height: 35px; justify-content: center; }
         }
         
         @media (max-width: 400px) {
@@ -265,85 +283,29 @@
             <p><i class="fas fa-user-tie"></i> By Dev Nain | <i class="fas fa-phone"></i> 8950101037</p>
             <p class="subtitle">थारी अपनी दुकान, सारा ऑनलाइन काम।</p>
         </div>
-        <div id="shopStatus" style="text-align: center; margin: 10px 0 20px 0; font-weight: 600; font-size: 15px;"></div>
 
-<script>
-    // ==========================================
-    // ⚙️ OWNER SETTING (दुकान मालिक की सेटिंग)
-    // ==========================================
-    
-    // जब आप बाहर जाएं, तो false को हटाकर true लिख दें।
-    // जब वापस आएं, तो true हटाकर false लिख दें।
-    
-    const isOwnerOut = false;  
-    
-    // true  = "Shop Temporarily Closed" (मैं बाहर हूँ)
-    // false = "Automatic Time" (7 बजे से 7 बजे तक खुला दिखेगा)
+        <div class="smart-bar">
+            <div class="bar-left">
+                <a href="index.html" class="nav-icon active" title="Home"><i class="fas fa-home"></i></a>
+                <a href="offline_forms.html" class="nav-icon" title="Offline Forms"><i class="fas fa-file-download"></i></a>
+                <a href="contact.html" class="nav-icon" title="Contact Us"><i class="fas fa-address-book"></i></a>
+            </div>
 
-    // ==========================================
-    // 🕒 AUTOMATIC LOGIC (छेड़छाड़ न करें)
-    // ==========================================
-    const now = new Date();
-    const hours = now.getHours(); // अभी का समय (घंटे में)
-    const statusDiv = document.getElementById('shopStatus');
+            <div class="bar-center" id="shopStatusText">
+                </div>
 
-    // दुकान का समय: सुबह 7 बजे (7) से शाम 7 बजे (19) तक
-    const openTime = 7;
-    const closeTime = 19;
-
-    if (isOwnerOut === true) {
-        // 1. अगर आपने मैनुअली बंद किया है
-        statusDiv.innerHTML = `
-            <span style="color: #a94442; background: #f2dede; padding: 6px 15px; border-radius: 25px; border: 1px solid #ebccd1; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                🔴 Shop is Temporarily Closed (Owner Out)
-            </span>`;
-    } 
-    else if (hours >= openTime && hours < closeTime) {
-        // 2. अगर दुकान खुली है (सुबह 7 से शाम 7 के बीच)
-        statusDiv.innerHTML = `
-            <span style="color: #155724; background: #d4edda; padding: 6px 15px; border-radius: 25px; border: 1px solid #c3e6cb; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                🟢 Shop is Open (7 AM - 7 PM)
-            </span>`;
-    } 
-    else {
-        // 3. अगर रात हो गई है (शाम 7 के बाद या सुबह 7 से पहले)
-        statusDiv.innerHTML = `
-            <span style="color: #721c24; background: #f8d7da; padding: 6px 15px; border-radius: 25px; border: 1px solid #f5c6cb; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                🔴 Shop is Closed (Opens at 7 AM)
-            </span>`;
-    }
-</script>
-
-       <div class="nav-bar">
-    <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
-    <a href="offline_forms.html"><i class="fas fa-file-download"></i> Offline Forms</a>
-    <a href="contact.html"><i class="fas fa-address-book"></i> Contact Us</a>
-</div>
+            <div class="bar-right">
+                <a href="https://chat.whatsapp.com/JTO6kT4j8ykEIgRAVdpags?mode=hqrc" target="_blank">
+                    <i class="fab fa-whatsapp" style="font-size: 18px;"></i>
+                    <span class="wa-text">Join Grp</span>
+                </a>
+            </div>
+        </div>
 
         <marquee class="news-ticker" scrollamount="10" onmouseover="this.stop();" onmouseout="this.start();">
             Latest Updates: CET RESULT OUT | Delhi Police Slot Booking Start | Fasal Panjikaran Start For 2025-26. Contact Shop for more details.
         </marquee>
-<div style="text-align: center; margin: 15px 0 25px 0;">
-    <a href="https://chat.whatsapp.com/JTO6kT4j8ykEIgRAVdpags?mode=hqrc" target="_blank" style="
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(45deg, #25D366, #128C7E);
-        color: white;
-        padding: 12px 30px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 16px;
-        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-        border: 2px solid white;
-        transition: transform 0.2s;
-    ">
-        <i class="fab fa-whatsapp" style="font-size: 22px; margin-right: 10px;"></i>
-        Join WhatsApp Group
-    </a>
-</div>
-        
+
         <div class="search-container">
             <i class="fas fa-search search-icon"></i>
             <input type="text" id="searchInput" class="search-input" placeholder="Search service (e.g., Aadhar, Ration, Pan)...">
@@ -352,223 +314,136 @@
         <div class="menu-grid" id="menuGrid">
             
             <a href="https://beneficiary.nha.gov.in/" class="menu-box">
-                <i class="fas fa-heartbeat"></i>
-                <span>Ayushman Card</span>
+                <i class="fas fa-heartbeat"></i> <span>Ayushman Card</span>
             </a>
-            
             <a href="https://saralharyana.gov.in/login.do?" class="menu-box">
-                <i class="fas fa-laptop-house"></i>
-                <span>Saral Haryana</span>
+                <i class="fas fa-laptop-house"></i> <span>Saral Haryana</span>
             </a>
-            
             <a href="https://ppp-office.haryana.gov.in/FamilyDirect?var=CitizenLogin" class="menu-box">
-                <i class="fas fa-users"></i>
-                <span>Family ID</span>
+                <i class="fas fa-users"></i> <span>Family ID</span>
             </a>
-            
             <a href="https://gjuonline.ac.in/pgadmission/" class="menu-box">
-                <i class="fas fa-search-plus"></i>
-                <span>Know Your Family ID</span>
+                <i class="fas fa-search-plus"></i> <span>Know Your Family ID</span>
             </a>
-            
             <a href="https://example.com/happy" class="menu-box">
-                <i class="fas fa-smile-beam"></i>
-                <span>Happy Card</span>
+                <i class="fas fa-smile-beam"></i> <span>Happy Card</span>
             </a>
-            
             <a href="https://edisha.gov.in/eForms/Status" class="menu-box">
-                <i class="fas fa-file-contract"></i>
-                <span>e-Disha Status Check</span>
+                <i class="fas fa-file-contract"></i> <span>e-Disha Status Check</span>
             </a>
-            
             <a href="https://fasal.haryana.gov.in/home/login" class="menu-box">
-                <i class="fas fa-seedling"></i>
-                <span>मेरी फसल मेरा ब्योरा</span>
+                <i class="fas fa-seedling"></i> <span>मेरी फसल मेरा ब्योरा</span>
             </a>
-            
             <a href="https://bseh.org.in/home" class="menu-box">
-                <i class="fas fa-book-reader"></i>
-                <span>HBSE</span>
+                <i class="fas fa-book-reader"></i> <span>HBSE</span>
             </a>
-            
             <a href="https://myaadhaar.uidai.gov.in/" class="menu-box">
-                <i class="fas fa-fingerprint"></i>
-                <span>Aadhar Card</span>
+                <i class="fas fa-fingerprint"></i> <span>Aadhar Card</span>
             </a>
-            
             <a href="https://hrylabour.gov.in/login/bocw" class="menu-box">
-                <i class="fas fa-hard-hat"></i>
-                <span>Labour Copy</span>
+                <i class="fas fa-hard-hat"></i> <span>Labour Copy</span>
             </a>
-            
             <a href="https://admissions.highereduhry.ac.in/" class="menu-box">
-                <i class="fas fa-user-graduate"></i>
-                <span>UG/PG Admission</span>
+                <i class="fas fa-user-graduate"></i> <span>UG/PG Admission</span>
             </a>
-            
             <a href="https://ssc.gov.in/login" class="menu-box">
-                <i class="fas fa-briefcase"></i>
-                <span>SSC</span>
+                <i class="fas fa-briefcase"></i> <span>SSC</span>
             </a>
-            
             <a href="https://epds.haryanafood.gov.in/search-rc" class="menu-box">
-                <i class="fas fa-utensils"></i>
-                <span>Ration Card</span>
+                <i class="fas fa-utensils"></i> <span>Ration Card</span>
             </a>
-            
             <a href="https://pension.socialjusticehry.gov.in/Ben_Inf" class="menu-box">
-                <i class="fas fa-blind"></i>
-                <span>HR Pension Status</span>
+                <i class="fas fa-blind"></i> <span>HR Pension Status</span>
             </a>
-            
             <a href="https://hkrnl.itiharyana.gov.in/getMember_pub?userType=CAN" class="menu-box">
-                <i class="fas fa-network-wired"></i>
-                <span>HRKN</span>
+                <i class="fas fa-network-wired"></i> <span>HRKN</span>
             </a>
-            
             <a href="https://pmuy.gov.in/ujjwala2.html" class="menu-box">
-                <i class="fas fa-burn"></i>
-                <span>उज्ज्वला योजना</span>
+                <i class="fas fa-burn"></i> <span>उज्ज्वला योजना</span>
             </a>
-            
             <a href="https://voters.eci.gov.in/login" class="menu-box">
-                <i class="fas fa-vote-yea"></i>
-                <span>Vote Card</span>
+                <i class="fas fa-vote-yea"></i> <span>Vote Card</span>
             </a>
-            
             <a href="https://dapsy.finhry.gov.in/get-family-id" class="menu-box">
-                <i class="fas fa-home"></i>
-                <span>Deen Dayal</span>
+                <i class="fas fa-home"></i> <span>Deen Dayal</span>
             </a>
-            
             <a href="https://epds.haryanafood.gov.in/account/lpg" class="menu-box">
-                <i class="fas fa-gas-pump"></i>
-                <span>Gas Subsidy Apply</span>
+                <i class="fas fa-gas-pump"></i> <span>Gas Subsidy Apply</span>
             </a>
-            
             <a href="lpg_services.html" class="menu-box">
-                <i class="fas fa-fire"></i>
-                <span>Know Your LPG ID</span>
+                <i class="fas fa-fire"></i> <span>Know Your LPG ID</span>
             </a>
-            
             <a href="https://www.passportindia.gov.in/psp" class="menu-box">
-                <i class="fas fa-passport"></i>
-                <span>Passport</span>
+                <i class="fas fa-passport"></i> <span>Passport</span>
             </a>
-            
             <a href="https://hrex.gov.in/login" class="menu-box">
-                <i class="fas fa-handshake"></i>
-                <span>Employment</span>
+                <i class="fas fa-handshake"></i> <span>Employment</span>
             </a>
-            
             <a href="https://econnection.dhbvn.org.in/" class="menu-box">
-                <i class="fas fa-bolt"></i>
-                <span>DHBVN New Connection</span>
+                <i class="fas fa-bolt"></i> <span>DHBVN New Connection</span>
             </a>
-            
             <a href="https://www.dhbvn.org.in/web/portal/auth" class="menu-box">
-                <i class="fas fa-plug"></i>
-                <span>DHBVN Login</span>
+                <i class="fas fa-plug"></i> <span>DHBVN Login</span>
             </a>
-            
             <a href="https://onlineservices.proteantech.in/paam/endUserRegisterContact.html" class="menu-box">
-                <i class="fas fa-id-card"></i>
-                <span>Pan Card NSDL</span>
+                <i class="fas fa-id-card"></i> <span>Pan Card NSDL</span>
             </a>
-            
             <a href="https://hreyahs.gov.in/parvesh" class="menu-box">
-                <i class="fas fa-chalkboard-teacher"></i>
-                <span>Saksham</span>
+                <i class="fas fa-chalkboard-teacher"></i> <span>Saksham</span>
             </a>
-            
             <a href="https://www.photopea.com/" class="menu-box">
-                <i class="fas fa-camera"></i>
-                <span>Photo Maker</span>
+                <i class="fas fa-camera"></i> <span>Photo Maker</span>
             </a>
-            
             <a href="https://haryanapolice.gov.in/" class="menu-box">
-                <i class="fas fa-shield-alt"></i>
-                <span>Police Verification</span>
+                <i class="fas fa-shield-alt"></i> <span>Police Verification</span>
             </a>
-            
             <a href="https://connect.csc.gov.in/account/authorize?response_type=code&client_id=0f8ca686-5a31-46b8-bb51-d9834ba9fa9d&redirect_uri=https%3A%2F%2Fdigitalseva.csc.gov.in%2Fauth%2Fcallback%2F&state=70007" class="menu-box">
-                <i class="fas fa-globe"></i>
-                <span>Digital Seva</span>
+                <i class="fas fa-globe"></i> <span>Digital Seva</span>
             </a>
-            
             <a href="https://unifiedportal-mem.epfindia.gov.in/memberinterface/" class="menu-box">
-                <i class="fas fa-piggy-bank"></i>
-                <span>PF Apply / KYC</span>
+                <i class="fas fa-piggy-bank"></i> <span>PF Apply / KYC</span>
             </a>
-            
             <a href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/bl-link-aadhaar" class="menu-box">
-                <i class="fas fa-link"></i>
-                <span>Aadhar+Pan Link</span>
+                <i class="fas fa-link"></i> <span>Aadhar+Pan Link</span>
             </a>
-            
             <a href="https://swavlambancard.gov.in/" class="menu-box">
-                <i class="fas fa-wheelchair"></i>
-                <span>UDID Card</span>
+                <i class="fas fa-wheelchair"></i> <span>UDID Card</span>
             </a>
-            
             <a href="https://jamabandi.nic.in/land%20records/NakalRecord" class="menu-box">
-                <i class="fas fa-map-marked-alt"></i>
-                <span>Jamabandi</span>
+                <i class="fas fa-map-marked-alt"></i> <span>Jamabandi</span>
             </a>
-            
             <a href="https://www.ceir.gov.in/Home/index.jsp" class="menu-box">
-                <i class="fas fa-mobile-alt"></i>
-                <span>CEIR Complain</span>
+                <i class="fas fa-mobile-alt"></i> <span>CEIR Complain</span>
             </a>
-            
             <a href="https://pmkisan.gov.in/" class="menu-box">
-                <i class="fas fa-tractor"></i>
-                <span>PM Kisan Portal</span>
+                <i class="fas fa-tractor"></i> <span>PM Kisan Portal</span>
             </a>
-            
             <a href="https://harchhatravratti.highereduhry.ac.in/" class="menu-box">
-                <i class="fas fa-graduation-cap"></i>
-                <span>Har Chhatravrati</span>
+                <i class="fas fa-graduation-cap"></i> <span>Har Chhatravrati</span>
             </a>
-            
             <a href="https://agriharyana.gov.in/FarmerLogin" class="menu-box">
-                <i class="fas fa-leaf"></i>
-                <span>Agri Haryana</span>
+                <i class="fas fa-leaf"></i> <span>Agri Haryana</span>
             </a>
-            
             <a href="https://www.apprenticeshipindia.gov.in/login" class="menu-box">
-                <i class="fas fa-tools"></i>
-                <span>Apprenticeship</span>
+                <i class="fas fa-tools"></i> <span>Apprenticeship</span>
             </a>
-            
             <a href="https://epayment.dhbvn.org.in/b2csearch.aspx" class="menu-box">
-                <i class="fas fa-file-invoice-dollar"></i>
-                <span>बिजली बिल Pay</span>
+                <i class="fas fa-file-invoice-dollar"></i> <span>बिजली बिल Pay</span>
             </a>
-            
             <a href="https://epos.haryanafood.gov.in/SRC_Trans_Int" class="menu-box">
-                <i class="fas fa-list-alt"></i>
-                <span>Ration Details</span>
+                <i class="fas fa-list-alt"></i> <span>Ration Details</span>
             </a>
-            
             <a href="https://idcard.store/u/all_cards#google_vignette" class="menu-box">
-                <i class="fas fa-print"></i>
-                <span>All Card Maker</span>
+                <i class="fas fa-print"></i> <span>All Card Maker</span>
             </a>
-            
             <a href="http://hry.cdservice.in/Home/HRLogin" class="menu-box">
-                <i class="fas fa-city"></i>
-                <span>CD Service</span>
+                <i class="fas fa-city"></i> <span>CD Service</span>
             </a>
-            
             <a href="https://web.whatsapp.com/" class="menu-box">
-                <i class="fab fa-whatsapp"></i>
-                <span>Whatsapp</span>
+                <i class="fab fa-whatsapp"></i> <span>Whatsapp</span>
             </a>
-            
             <a href="https://echallan.parivahan.gov.in/index/accused-challan" class="menu-box">
-                <i class="fas fa-receipt"></i>
-                <span>Challan</span>
+                <i class="fas fa-receipt"></i> <span>Challan</span>
             </a>
 
         </div>
@@ -582,13 +457,29 @@
     </div>
 
     <script>
-        // Search functionality
+        // --- 1. SHOP STATUS LOGIC (Updated for Smart Bar) ---
+        const isOwnerOut = false; // <-- CHANGE TO true WHEN YOU GO OUT
+
+        const now = new Date();
+        const hours = now.getHours();
+        const statusContainer = document.getElementById('shopStatusText');
+        
+        if (isOwnerOut) {
+            statusContainer.innerHTML = '<span class="status-badge" style="background:#fde8e8; color:#c32f19;">🔴 Closed</span>';
+        } 
+        else if (hours >= 7 && hours < 19) {
+            statusContainer.innerHTML = '<span class="status-badge" style="background:#d4edda; color:#155724;">🟢 Open (7-7)</span>';
+        } 
+        else {
+            statusContainer.innerHTML = '<span class="status-badge" style="background:#fde8e8; color:#c32f19;">🔴 Closed</span>';
+        }
+
+        // --- 2. SEARCH FUNCTIONALITY ---
         const searchInput = document.getElementById('searchInput');
         const boxes = document.querySelectorAll('.menu-box');
 
         searchInput.addEventListener('keyup', function(event) {
             const query = event.target.value.toLowerCase();
-
             boxes.forEach(box => {
                 const text = box.querySelector('span').textContent.toLowerCase();
                 if (text.includes(query)) {
@@ -599,7 +490,7 @@
             });
         });
         
-        // Mobile Link Alert for '#' links
+        // Mobile Link Alert
         const navLinks = document.querySelectorAll('a[href="#"]');
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -608,6 +499,7 @@
             });
         });
     </script>
+    
     <a href="https://wa.me/918950101037" target="_blank" style="
     position: fixed;
     bottom: 20px;
@@ -623,7 +515,7 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     z-index: 1000;
     transition: transform 0.3s;
-">
+    ">
     <i class="fab fa-whatsapp"></i>
     </a>
     
