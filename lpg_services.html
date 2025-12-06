@@ -188,21 +188,42 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const isOwnerOut = false; // Change to true if out
-            
-            const now = new Date();
-            const hours = now.getHours();
-            const statusContainer = document.getElementById('shopStatusText');
-            
-            if (isOwnerOut) {
-                statusContainer.innerHTML = '<span class="status-badge" style="background:#fde8e8; color:#c32f19;">🔴 Closed</span>';
-            } else if (hours >= 7 && hours < 19) {
-                statusContainer.innerHTML = '<span class="status-badge" style="background:#d4edda; color:#155724;">🟢 Open (7-7)</span>';
-            } else {
-                statusContainer.innerHTML = '<span class="status-badge" style="background:#fde8e8; color:#c32f19;">🔴 Closed</span>';
-            }
-        });
-    </script>
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        // ============================================================
+        // ⚙️ OWNER CONTROL PANEL (मालिक की सेटिंग)
+        // ============================================================
+        
+        // 1. जब आप दुकान पर हों (ऑटोमैटिक टाइम): इसे खाली रखें -> "" 
+        // 2. जब आप बाहर हों: कोट्स के बीच लिखें -> "Closed till 12 Dec" या "Closed till Monday"
+        
+        const manualMessage = "";  // <--- यहाँ एडिट करें
+        
+        // ============================================================
+        // 🕒 AUTOMATIC LOGIC (इसे छेड़ने की जरूरत नहीं)
+        // ============================================================
+        
+        const now = new Date();
+        const hours = now.getHours();
+        const statusContainer = document.getElementById('shopStatusText');
+        
+        // दुकान का समय (24 घंटे के फॉर्मेट में)
+        const openHour = 7;   // सुबह 7 बजे
+        const closeHour = 19; // शाम 7 बजे (19:00)
+
+        // 1. अगर आपने मैन्युअल मैसेज लिखा है (जैसे छुट्टी पर हैं)
+        if (manualMessage !== "") {
+            statusContainer.innerHTML = `<span class="status-badge" style="background:#fde8e8; color:#c32f19;">🔴 ${manualMessage}</span>`;
+        } 
+        // 2. अगर दुकान खुली है (सुबह 7 से शाम 7 के बीच)
+        else if (hours >= openHour && hours < closeHour) {
+            statusContainer.innerHTML = `<span class="status-badge" style="background:#d4edda; color:#155724;">🟢 Open • Closes 7 PM</span>`;
+        } 
+        // 3. अगर दुकान बंद है (रात को या सुबह जल्दी)
+        else {
+            statusContainer.innerHTML = `<span class="status-badge" style="background:#fde8e8; color:#c32f19;">🔴 Closed • Opens 7 AM</span>`;
+        }
+    });
+</script>
 </body>
 </html>
