@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nain Photostate - Offline Forms</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.png" type="image/png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- SAME CSS AS HOME PAGE --- */
         :root {
             --primary-color: #0d6efd;
-            --secondary-color: #6c757d;
             --bg-color: #f0f2f5;
             --card-bg: #ffffff;
             --text-dark: #343a40;
@@ -20,200 +21,111 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             background-color: var(--bg-color);
             background-image: linear-gradient(to bottom right, #eef2f3, #8e9eab);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
+            display: flex; justify-content: center;
             padding-bottom: 40px;
         }
 
         .main-container {
-            width: 100%;
-            max-width: 1000px;
+            width: 100%; max-width: 1000px;
             background-color: rgba(255, 255, 255, 0.95);
-            margin-top: 20px;
-            padding: 20px;
+            margin-top: 20px; padding: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             border-radius: 16px;
         }
 
         /* Header */
         .header {
-            text-align: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #dee2e6;
-            margin-bottom: 20px;
+            text-align: center; padding: 20px 0;
+            border-bottom: 1px solid #dee2e6; margin-bottom: 20px;
         }
-
         .header h1 {
-            margin: 0;
-            font-size: 34px;
+            margin: 0; font-size: 34px;
             background: -webkit-linear-gradient(#0d6efd, #0a58ca);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            text-transform: uppercase;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 700; text-transform: uppercase;
+        }
+        .header p { margin: 5px 0; color: #495057; font-size: 15px; font-weight: 500; }
+
+        /* --- SMART ACTION BAR --- */
+        .smart-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            background: #ffffff; padding: 8px 15px;
+            border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            margin-bottom: 25px; border: 1px solid #e9ecef;
+            position: sticky; top: 10px; z-index: 1000;
+        }
+        .bar-left { display: flex; gap: 8px; }
+        .nav-icon {
+            width: 35px; height: 35px; border-radius: 50%;
+            background: #f0f2f5; color: #444;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: 0.3s; font-size: 14px;
+        }
+        .nav-icon.active, .nav-icon:hover { background: var(--primary-color); color: white; }
+        
+        .status-badge {
+            font-size: 12px; font-weight: 700; padding: 4px 12px;
+            border-radius: 20px; white-space: nowrap;
+            background: #e9ecef; color: #666;
         }
 
-        .header p {
-            margin: 5px 0;
-            color: #495057;
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        /* Nav Bar */
-        .nav-bar {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            background: #ffffff;
-            padding: 10px;
-            border-radius: 50px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-            border: 1px solid #e9ecef;
-        }
-
-        .nav-bar a {
-            text-decoration: none;
-            color: var(--text-dark);
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.3s;
-        }
-
-        .nav-bar a:hover {
-            background-color: #e9ecef;
-            color: var(--primary-color);
-        }
-
-        .nav-bar a.active {
-            background-color: var(--primary-color);
-            color: #fff;
-            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+        .bar-right a {
+            text-decoration: none; background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white; padding: 6px 15px; border-radius: 20px;
+            font-size: 13px; font-weight: 600;
+            display: flex; align-items: center; gap: 5px;
+            box-shadow: 0 2px 5px rgba(37, 211, 102, 0.3);
         }
 
         /* Search Bar */
         .search-container {
-            margin-bottom: 30px;
-            position: relative;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 30px; position: relative; max-width: 600px;
+            margin-left: auto; margin-right: auto;
         }
-
         .search-input {
-            width: 100%;
-            padding: 15px 25px;
-            padding-left: 50px;
-            font-size: 16px;
-            border: 2px solid #e9ecef;
-            border-radius: 50px;
-            box-sizing: border-box;
-            outline: none;
-            transition: all 0.3s;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
+            width: 100%; padding: 15px 25px 15px 50px; font-size: 16px;
+            border: 2px solid #e9ecef; border-radius: 50px; box-sizing: border-box;
+            outline: none; transition: all 0.3s; background-color: #f8f9fa;
         }
-
-        .search-input:focus {
-            border-color: var(--primary-color);
-            background-color: #fff;
-            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #adb5bd;
-        }
+        .search-input:focus { border-color: var(--primary-color); background-color: #fff; }
+        .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #adb5bd; }
 
         /* Grid */
         .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Slightly wider for forms */
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
         }
 
-        /* Menu Box (Forms) */
+        /* Menu Box */
         .menu-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px 10px;
-            background: var(--card-bg);
-            border-radius: 12px;
-            text-decoration: none;
-            color: var(--text-dark);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: all 0.2s ease;
-            border: 1px solid #f1f3f5;
-            height: 110px;
-            position: relative;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 20px 10px; background: var(--card-bg);
+            border-radius: 12px; text-decoration: none; color: var(--text-dark);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: all 0.2s ease;
+            border: 1px solid #f1f3f5; height: 110px; position: relative;
         }
+        .menu-box i { font-size: 32px; margin-bottom: 10px; color: var(--primary-color); transition: transform 0.3s; }
+        .menu-box span { font-weight: 600; font-size: 13px; line-height: 1.4; }
+        .menu-box .download-badge { position: absolute; top: 10px; right: 10px; font-size: 10px; color: #adb5bd; }
+        .menu-box:hover { transform: translateY(-5px); box-shadow: var(--hover-shadow); border-color: var(--primary-color); }
+        .menu-box:hover i { transform: scale(1.1); }
 
-        .menu-box i {
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-            transition: transform 0.3s;
-        }
+        /* Colors */
+        .menu-box:nth-child(4n+1) i { color: #d63384; } .menu-box:nth-child(4n+2) i { color: #198754; }
+        .menu-box:nth-child(4n+3) i { color: #fd7e14; } .menu-box:nth-child(4n+4) i { color: #0d6efd; }
 
-        .menu-box span {
-            font-weight: 600;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-        
-        .menu-box .download-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 10px;
-            color: #adb5bd;
-        }
-
-        .menu-box:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-            border-color: var(--primary-color);
-        }
-        
-        .menu-box:hover i {
-            transform: scale(1.1);
-        }
-
-        /* Colors for icons */
-        .menu-box:nth-child(4n+1) i { color: #d63384; } 
-        .menu-box:nth-child(4n+2) i { color: #198754; } 
-        .menu-box:nth-child(4n+3) i { color: #fd7e14; } 
-        .menu-box:nth-child(4n+4) i { color: #0d6efd; }
-
-        /* Footer Note */
-        .footer-note {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #dee2e6;
-            color: #6c757d;
-            font-size: 14px;
-        }
+        .footer-note { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #dee2e6; color: #6c757d; font-size: 14px; }
 
         @media (max-width: 600px) {
             .menu-grid { grid-template-columns: repeat(2, 1fr); }
             .header h1 { font-size: 26px; }
-            .menu-box { height: 100px; }
-            .menu-box i { font-size: 26px; }
+            .smart-bar { padding: 8px 10px; }
+            .wa-text { display: none; }
+            .bar-right a { padding: 8px; border-radius: 50%; width: 35px; height: 35px; justify-content: center; }
         }
     </style>
 </head>
@@ -226,11 +138,24 @@
             <p style="font-size: 13px; color: #666;">Offline Forms Download Center</p>
         </div>
 
-        <div class="nav-bar">
-    <a href="index.html"><i class="fas fa-home"></i> Home</a>
-    <a href="offline_forms.html" class="active"><i class="fas fa-file-download"></i> Offline Forms</a>
-    <a href="contact.html"><i class="fas fa-address-book"></i> Contact Us</a>
-</div>
+        <div class="smart-bar">
+            <div class="bar-left">
+                <a href="index.html" class="nav-icon"><i class="fas fa-home"></i></a>
+                <a href="offline_forms.html" class="nav-icon active"><i class="fas fa-file-download"></i></a>
+                <a href="contact.html" class="nav-icon"><i class="fas fa-address-book"></i></a>
+            </div>
+            
+            <div class="bar-center" id="shopStatusText">
+                <span class="status-badge">Checking...</span>
+            </div>
+
+            <div class="bar-right">
+                <a href="https://chat.whatsapp.com/JTO6kT4j8ykEIgRAVdpags?mode=hqrc" target="_blank">
+                    <i class="fab fa-whatsapp" style="font-size: 18px;"></i>
+                    <span class="wa-text">Join Grp</span>
+                </a>
+            </div>
+        </div>
 
         <div class="search-container">
             <i class="fas fa-search search-icon"></i>
@@ -320,20 +245,30 @@
     </div>
 
     <script>
+        // Status Logic
+        document.addEventListener("DOMContentLoaded", function() {
+            const isOwnerOut = false; // Change to true if out
+            const now = new Date();
+            const hours = now.getHours();
+            const statusContainer = document.getElementById('shopStatusText');
+            
+            if (isOwnerOut) {
+                statusContainer.innerHTML = '<span class="status-badge" style="background:#fde8e8; color:#c32f19;">🔴 Closed</span>';
+            } else if (hours >= 7 && hours < 19) {
+                statusContainer.innerHTML = '<span class="status-badge" style="background:#d4edda; color:#155724;">🟢 Open (7-7)</span>';
+            } else {
+                statusContainer.innerHTML = '<span class="status-badge" style="background:#fde8e8; color:#c32f19;">🔴 Closed</span>';
+            }
+        });
+
         // Search Logic
         const searchInput = document.getElementById('searchInput');
         const boxes = document.querySelectorAll('.menu-box');
-
         searchInput.addEventListener('keyup', function(event) {
             const query = event.target.value.toLowerCase();
-
             boxes.forEach(box => {
                 const text = box.querySelector('span').textContent.toLowerCase();
-                if (text.includes(query)) {
-                    box.style.display = 'flex';
-                } else {
-                    box.style.display = 'none';
-                }
+                box.style.display = text.includes(query) ? 'flex' : 'none';
             });
         });
     </script>
