@@ -265,6 +265,54 @@
             <p><i class="fas fa-user-tie"></i> By Dev Nain | <i class="fas fa-phone"></i> 8950101037</p>
             <p class="subtitle">थारी अपनी दुकान, सारा ऑनलाइन काम।</p>
         </div>
+        <div id="shopStatus" style="text-align: center; margin: 10px 0 20px 0; font-weight: 600; font-size: 15px;"></div>
+
+<script>
+    // ==========================================
+    // ⚙️ OWNER SETTING (दुकान मालिक की सेटिंग)
+    // ==========================================
+    
+    // जब आप बाहर जाएं, तो false को हटाकर true लिख दें।
+    // जब वापस आएं, तो true हटाकर false लिख दें।
+    
+    const isOwnerOut = false;  
+    
+    // true  = "Shop Temporarily Closed" (मैं बाहर हूँ)
+    // false = "Automatic Time" (7 बजे से 7 बजे तक खुला दिखेगा)
+
+    // ==========================================
+    // 🕒 AUTOMATIC LOGIC (छेड़छाड़ न करें)
+    // ==========================================
+    const now = new Date();
+    const hours = now.getHours(); // अभी का समय (घंटे में)
+    const statusDiv = document.getElementById('shopStatus');
+
+    // दुकान का समय: सुबह 7 बजे (7) से शाम 7 बजे (19) तक
+    const openTime = 7;
+    const closeTime = 19;
+
+    if (isOwnerOut === true) {
+        // 1. अगर आपने मैनुअली बंद किया है
+        statusDiv.innerHTML = `
+            <span style="color: #a94442; background: #f2dede; padding: 6px 15px; border-radius: 25px; border: 1px solid #ebccd1; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                🔴 Shop is Temporarily Closed (Owner Out)
+            </span>`;
+    } 
+    else if (hours >= openTime && hours < closeTime) {
+        // 2. अगर दुकान खुली है (सुबह 7 से शाम 7 के बीच)
+        statusDiv.innerHTML = `
+            <span style="color: #155724; background: #d4edda; padding: 6px 15px; border-radius: 25px; border: 1px solid #c3e6cb; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                🟢 Shop is Open (7 AM - 7 PM)
+            </span>`;
+    } 
+    else {
+        // 3. अगर रात हो गई है (शाम 7 के बाद या सुबह 7 से पहले)
+        statusDiv.innerHTML = `
+            <span style="color: #721c24; background: #f8d7da; padding: 6px 15px; border-radius: 25px; border: 1px solid #f5c6cb; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                🔴 Shop is Closed (Opens at 7 AM)
+            </span>`;
+    }
+</script>
 
        <div class="nav-bar">
     <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
