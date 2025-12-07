@@ -211,58 +211,74 @@
     <script src="script.js"></script>
 
     <script>
-        // Set Today's Date
-        document.getElementById('currentDate').innerText = new Date().toLocaleDateString();
+    // 1. Set Today's Date
+    document.getElementById('currentDate').innerText = new Date().toLocaleDateString();
 
-        // 1. Update Resume Text
-        function updateResume() {
-            function val(id, def) { return document.getElementById(id).value || def; }
+    // 2. Update Resume Logic
+    function updateResume() {
+        function val(id, def) { return document.getElementById(id).value || def; }
 
-            document.getElementById('outName').innerText = val('inpName', 'AMIT KUMAR');
-            document.getElementById('outAddress').innerText = val('inpAddress', 'VPO Danoda Kalan, Distt Jind (HR)');
-            document.getElementById('outPhone').innerText = val('inpPhone', '+91 9999999999');
-            document.getElementById('outEmail').innerText = val('inpEmail', 'example@gmail.com');
-            
-            // Objective (Use default if empty)
-            let obj = document.getElementById('inpObjective').value;
-            let defaultObj = "To work in a challenging environment where I can utilize my skills and contribute to the growth of the organization while enhancing my own knowledge.";
-            document.getElementById('outObjective').innerText = obj ? obj : defaultObj;
+        document.getElementById('outName').innerText = val('inpName', 'AMIT KUMAR');
+        document.getElementById('outAddress').innerText = val('inpAddress', 'VPO Danoda Kalan, Distt Jind (HR)');
+        document.getElementById('outPhone').innerText = val('inpPhone', '+91 9999999999');
+        document.getElementById('outEmail').innerText = val('inpEmail', 'example@gmail.com');
+        
+        // Objective
+        let obj = document.getElementById('inpObjective').value;
+        let defaultObj = "To work in a challenging environment where I can utilize my skills and contribute to the growth of the organization while enhancing my own knowledge.";
+        document.getElementById('outObjective').innerText = obj ? obj : defaultObj;
 
-            document.getElementById('out10').innerText = val('inp10', '-');
-            document.getElementById('out12').innerText = val('inp12', '-');
-            document.getElementById('outGrad').innerText = val('inpGrad', '-');
-            document.getElementById('outSkill').innerText = val('inpSkill', 'Basic Computer Knowledge');
+        // Education
+        document.getElementById('out10').innerText = val('inp10', '-');
+        document.getElementById('out12').innerText = val('inp12', '-');
+        document.getElementById('outGrad').innerText = val('inpGrad', '-');
+        
+        // Skills & Personal
+        document.getElementById('outSkill').innerText = val('inpSkill', 'Basic Computer Knowledge');
+        document.getElementById('outFather').innerText = val('inpFather', '-');
+        document.getElementById('outDob').innerText = val('inpDob', '-');
+        document.getElementById('outGender').innerText = val('inpGender', '-');
+        document.getElementById('outMarital').innerText = val('inpMarital', 'Unmarried');
+    }
 
-            // Personal Details
-            document.getElementById('outFather').innerText = val('inpFather', '-');
-            document.getElementById('outDob').innerText = val('inpDob', '-');
-            document.getElementById('outGender').innerText = val('inpGender', '-');
-            document.getElementById('outMarital').innerText = val('inpMarital', 'Unmarried');
+    // 3. Handle Photo Upload
+    function loadPhoto(event) {
+        const image = document.getElementById('outPhoto');
+        if(event.target.files && event.target.files[0]) {
+            image.src = URL.createObjectURL(event.target.files[0]);
+            image.style.display = 'block'; 
         }
+    }
 
-        // 2. Handle Photo Upload
-        function loadPhoto(event) {
-            const image = document.getElementById('outPhoto');
-            if(event.target.files && event.target.files[0]) {
-                image.src = URL.createObjectURL(event.target.files[0]);
-                image.style.display = 'block'; // Show photo
+    // 4. FIX: DOWNLOAD PDF FUNCTION
+    function downloadPDF() {
+        // Element aur Section dono ko select karein
+        const element = document.getElementById('resume-paper');
+        const previewSection = document.querySelector('.preview-section');
+
+        // Step A: Mobile par section hidden hota hai, usse pehle SHOW karein
+        previewSection.style.display = 'flex'; 
+        
+        const opt = {
+            margin:       0,
+            filename:     'Nain_Resume.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { 
+                scale: 2, 
+                useCORS: true,  // Photo load hone ke liye jaruri
+                scrollY: 0      // Page scroll hone par blank aane se rokta hai
+            },
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        // Step B: PDF Banayein aur fir wapis Hide karein
+        html2pdf().set(opt).from(element).save().then(function(){
+            // Agar screen choti hai (Mobile), to wapis chupa do
+            if(window.innerWidth < 900) {
+                previewSection.style.display = 'none';
             }
-        }
-
-        // 3. Download PDF
-        function downloadPDF() {
-            const element = document.getElementById('resume-paper');
-            element.style.display = 'block'; // Ensure visible
-            
-            const opt = {
-                margin:       0,
-                filename:     'Resume.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2 },
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-            html2pdf().set(opt).from(element).save();
-        }
-    </script>
+        });
+    }
+</script>
 </body>
 </html>
