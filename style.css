@@ -249,3 +249,94 @@ body {
 }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+/* --- JOB PAGE STYLES (Add to style.css) --- */
+
+/* 1. WhatsApp Notification Banner */
+.apply-banner {
+    background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+    border: 2px dashed #009688;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    animation: fadeIn 0.8s;
+}
+.banner-content h3 { margin: 0 0 5px 0; color: #00695c; font-size: 18px; }
+.banner-content p { margin: 0 0 15px 0; font-size: 13px; color: #444; }
+.banner-btn {
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    transition: transform 0.2s;
+}
+.banner-btn:hover { transform: scale(1.05); }
+
+/* 2. Job Dashboard Layout */
+.job-dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.job-column {
+    background: white; border-radius: 12px;
+    overflow: hidden; border: 1px solid #e9ecef;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.col-header {
+    padding: 15px; color: white; text-align: center;
+    font-weight: 700; font-size: 16px; text-transform: uppercase;
+}
+.green { background: #11998e; }
+.blue { background: #0d6efd; }
+.orange { background: #f2994a; }
+
+/* 3. Job Card Accordion */
+.job-list-container { padding: 10px; background: #f8f9fa; }
+.job-card {
+    background: white; border: 1px solid #e9ecef;
+    border-radius: 8px; margin-bottom: 10px;
+    overflow: hidden;
+}
+.job-header {
+    padding: 12px 15px; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    font-weight: 600; color: #333; font-size: 13px;
+    background: white; transition: 0.3s;
+}
+.job-header:hover { background: #f1f8ff; color: var(--primary-color); }
+.arrow { transition: transform 0.3s; color: #aaa; }
+
+/* Active State */
+.job-card.active .arrow { transform: rotate(180deg); color: var(--primary-color); }
+.job-card.active .job-header { border-bottom: 1px solid #eee; color: var(--primary-color); background: #f0f7ff; }
+
+/* Hidden Details */
+.job-details {
+    display: none; padding: 15px; background: #fff;
+    font-size: 13px; color: #555;
+}
+.detail-row {
+    margin-bottom: 8px; border-bottom: 1px dashed #eee;
+    padding-bottom: 5px; display: flex; align-items: center;
+}
+.detail-row i { color: var(--primary-color); margin-right: 10px; width: 15px; }
+
+/* Buttons */
+.btn-group { display: flex; gap: 10px; margin-top: 15px; }
+.btn-official, .btn-apply {
+    flex: 1; text-align: center; padding: 8px;
+    border-radius: 5px; font-weight: 600; text-decoration: none; font-size: 12px;
+}
+.btn-official { background: #e9ecef; color: #333; border: 1px solid #ced4da; }
+.btn-apply { background: var(--primary-color); color: white; }
+.full-width { width: 100%; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .job-dashboard { grid-template-columns: 1fr; }
+}
