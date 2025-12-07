@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Nain Photostate</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.png" type="image/png">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="main-container">
         <div class="header">
             <h1>Nain Photostate & Online Center</h1>
-            <p><i class="fas fa-user-tie"></i> By Dev Nain</p>
-            <p style="font-size: 13px; color: #c32f19; font-weight: 600;">Visit Our Center for Best Service</p>
+            <p><i class="fas fa-user-tie"></i> By Dev Nain | <i class="fas fa-phone"></i> 8950101037</p>
+            <p class="subtitle">Visit Our Center for Best Service</p>
         </div>
 
         <div class="smart-bar">
@@ -26,9 +27,9 @@
                 <a href="offline_forms.html" class="nav-icon"><i class="fas fa-file-download"></i></a>
                 <a href="contact.html" class="nav-icon active"><i class="fas fa-address-book"></i></a>
             </div>
-            
-            <div class="bar-center" id="shopStatusText"></div>
-
+            <div class="bar-center" id="shopStatusText">
+                <span class="status-badge">Checking...</span>
+            </div>
             <div class="bar-right">
                 <a href="https://chat.whatsapp.com/JTO6kT4j8ykEIgRAVdpags?mode=hqrc" target="_blank">
                     <i class="fab fa-whatsapp" style="font-size: 18px;"></i>
@@ -48,10 +49,10 @@
                 <h3>WhatsApp</h3>
                 <p>Chat with Dev Nain</p>
             </a>
-            <a href="https://maps.app.goo.gl/UQpywNGbmPm2Kdyy8" class="contact-box c-loc">
+            <a href="https://maps.app.goo.gl/UQpywNGbmPm2Kdyy8" target="_blank" class="contact-box c-loc">
                 <i class="fas fa-map-marker-alt"></i>
                 <h3>Visit Shop</h3>
-                <p>Sainthali Road, Danoda Kalan</p>
+                <p>Danoda Kalan</p>
             </a>
             <a href="mailto:dnain81@gmail.com" class="contact-box c-email">
                 <i class="fas fa-envelope"></i>
@@ -60,28 +61,52 @@
             </a>
         </div>
 
+        <div style="text-align: center; margin-bottom: 30px;">
+            <a href="https://g.page/r/CZD7foZRD7DoEBM/review" target="_blank" style="
+                background: white; border: 2px solid #ffc107; padding: 12px 25px;
+                border-radius: 50px; text-decoration: none; color: #333; font-weight: 600;
+                display: inline-flex; align-items: center; gap: 10px; transition: 0.3s;
+            ">
+                <span style="font-size: 18px;">⭐⭐⭐⭐⭐</span> Rate Us on Google
+            </a>
+        </div>
+
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3471.7708609984525!2d75.9944668!3d29.523037499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39118d1cfe312841%3A0xe0c92f25b84d9c42!2sNain%20Photostate%20%26%20Online%20Center!5e0!3m2!1sen!2sin!4v1765000779306!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3471.7708609984525!2d75.9944668!3d29.523037499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39118d1cfe312841%3A0xe0c92f25b84d9c42!2sNain%20Photostate%20%26%20Online%20Center!5e0!3m2!1sen!2sin!4v1765000779306!5m2!1sen!2sin" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
 
         <div class="form-container">
             <div class="form-header">
                 <h2>Send a Message</h2>
-                <p style="font-size: 13px; color: #666;">Any query about Forms or Schemes? Ask here.</p>
+                <p>Any query about Forms, Status, or Schemes? Ask here.</p>
             </div>
             <form>
-                <div class="form-group"><input type="text" class="form-input" placeholder="Your Name" required></div>
-                <div class="form-group"><input type="text" class="form-input" placeholder="Phone Number" required></div>
-                <div class="form-group"><textarea class="form-input" rows="4" placeholder="Your Message..."></textarea></div>
-                <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Your Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" class="form-input" placeholder="Mobile Number" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-input" rows="5" placeholder="Write your message or query..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message Now
+                </button>
             </form>
         </div>
 
         <div class="footer-note">
-            <p>© 2025 Nain Photostate & Online Center.</p>
+            <p>&copy; 2025 Nain Photostate & Online Center.</p>
         </div>
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
