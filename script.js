@@ -47,3 +47,21 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+// --- 4. JOB PAGE ACCORDION LOGIC ---
+    // Note: We attach this to window so HTML onClick works
+    window.toggleJob = function(header) {
+        const card = header.parentElement;
+        const details = card.querySelector('.job-details');
+        
+        // Check if currently open
+        const isOpen = details.style.display === "block";
+        
+        // Close all others (Optional - keeps it clean)
+        document.querySelectorAll('.job-details').forEach(d => d.style.display = 'none');
+        document.querySelectorAll('.job-card').forEach(c => c.classList.remove('active'));
+
+        if (!isOpen) {
+            details.style.display = "block";
+            card.classList.add('active');
+        }
+    };
