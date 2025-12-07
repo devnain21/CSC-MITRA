@@ -189,3 +189,63 @@ body {
     .bar-right a { padding: 8px; border-radius: 50%; width: 35px; height: 35px; justify-content: center; }
 }
 @media (max-width: 400px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+/* --- TOOLS PAGE STYLES (Add to style.css) --- */
+
+.tool-widget {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto; /* Center alignment */
+}
+
+.calc-input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.calc-input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.calc-input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.calc-btn {
+    background: linear-gradient(45deg, #0d6efd, #0043a7);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: transform 0.2s;
+}
+
+.calc-btn:active { transform: scale(0.98); }
+
+.result-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e7f1ff;
+    border-radius: 10px;
+    border: 1px solid #b6d4fe;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
