@@ -227,6 +227,16 @@
     <i class="fab fa-whatsapp"></i>
     </a>
     <script src="script.js"></script>
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(req => console.log('Service Worker Registered!', req))
+        .catch(err => console.log('Service Worker Failed', err));
+    });
+  }
+    </script>
+    
 </body>
 </html>
 ```
