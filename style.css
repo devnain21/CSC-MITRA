@@ -1,4 +1,4 @@
-/* style.css - Main Stylesheet */
+/* style.css - Main Stylesheet (Final Updated) */
 :root {
     --primary-color: #0d6efd;
     --bg-color: #f0f2f5;
@@ -36,7 +36,7 @@ body {
 .header p { margin: 5px 0; color: #495057; font-size: 15px; font-weight: 500; }
 .subtitle { font-size: 13px !important; color: #6c757d !important; }
 
-/* Smart Bar */
+/* Smart Bar (Desktop Default) */
 .smart-bar {
     display: flex; justify-content: space-between; align-items: center;
     background: #ffffff; padding: 8px 15px;
@@ -79,12 +79,11 @@ body {
 .menu-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 .lpg-grid { grid-template-columns: repeat(3, 1fr); padding-bottom: 20px; }
 .contact-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-/* --- UPDATED CONTACT PAGE STYLES (Paste in style.css) --- */
 
-/* 1. Map Section (Bada aur Full Width) */
+/* Contact Page Styles */
 .map-container {
     width: 100%;
-    height: 450px; /* पहले 300px था, अब 450px कर दिया */
+    height: 450px;
     background: #e9ecef;
     border-radius: 16px;
     overflow: hidden;
@@ -92,21 +91,16 @@ body {
     border: 1px solid #dee2e6;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
-.map-container iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
+.map-container iframe { width: 100%; height: 100%; border: 0; }
 
-/* 2. Message/Feedback Form (Professional Card Look) */
 .form-container {
     background: #ffffff;
-    padding: 35px; /* अंदर जगह बढ़ाई */
+    padding: 35px;
     border-radius: 16px;
     border: 1px solid #f1f3f5;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* सुंदर शैडो */
-    max-width: 800px; /* ज्यादा चौड़ा होने से रोकेगा */
-    margin: 0 auto 30px auto; /* सेंटर में लाएगा */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 0 auto 30px auto;
 }
 
 .form-header { text-align: center; margin-bottom: 25px; }
@@ -116,43 +110,26 @@ body {
 .form-group { margin-bottom: 20px; }
 
 .form-input {
-    width: 100%;
-    padding: 15px 20px;
-    border: 2px solid #f0f2f5;
-    border-radius: 10px;
-    box-sizing: border-box; /* यह बॉक्स को टूटने से बचाएगा */
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    background-color: #f8f9fa;
-    transition: all 0.3s;
+    width: 100%; padding: 15px 20px;
+    border: 2px solid #f0f2f5; border-radius: 10px;
+    box-sizing: border-box; font-family: 'Poppins', sans-serif;
+    font-size: 15px; background-color: #f8f9fa; transition: all 0.3s;
 }
-
 .form-input:focus {
-    border-color: var(--primary-color);
-    background-color: #ffffff;
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+    border-color: var(--primary-color); background-color: #ffffff;
+    outline: none; box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
 }
 
 .submit-btn {
-    width: 100%;
-    padding: 15px;
+    width: 100%; padding: 15px;
     background: linear-gradient(to right, var(--primary-color), #0a58ca);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    letter-spacing: 0.5px;
+    color: white; border: none; border-radius: 10px;
+    font-weight: 600; font-size: 16px; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s; letter-spacing: 0.5px;
 }
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3); }
 
-.submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
-}
-
+/* Menu Boxes */
 .menu-box, .contact-box {
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     text-align: center; background: var(--card-bg); border-radius: 12px;
@@ -179,307 +156,148 @@ body {
 .footer-links, .footer-note { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #dee2e6; font-size: 14px; color: #666; }
 .footer-links a { color: var(--primary-color); text-decoration: none; font-weight: 600; margin: 0 10px; }
 
-/* Mobile */
-/* --- MOBILE RESPONSIVE FIX FOR SMART BAR --- */
+/* Tools Page Styles */
+.tool-widget {
+    background: #ffffff; padding: 25px;
+    border-radius: 12px; border: 1px solid #e9ecef;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center; max-width: 500px; margin: 0 auto;
+}
+.calc-input-group { margin-bottom: 15px; text-align: left; }
+.calc-input-group label { display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 5px; }
+.calc-input-group input { width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 8px; font-family: 'Poppins', sans-serif; box-sizing: border-box; }
+.calc-btn {
+    background: linear-gradient(45deg, #0d6efd, #0043a7); color: white;
+    border: none; padding: 12px 30px; border-radius: 50px;
+    font-weight: 600; cursor: pointer; width: 100%; margin-top: 10px; transition: transform 0.2s;
+}
+.calc-btn:active { transform: scale(0.98); }
+.result-box { margin-top: 20px; padding: 15px; background: #e7f1ff; border-radius: 10px; border: 1px solid #b6d4fe; animation: fadeIn 0.5s; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Job Page Styles */
+.apply-banner {
+    background: linear-gradient(135deg, #e0f2f1, #b2dfdb); border: 2px dashed #009688;
+    border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 30px; animation: fadeIn 0.8s;
+}
+.banner-content h3 { margin: 0 0 5px 0; color: #00695c; font-size: 18px; }
+.banner-content p { margin: 0 0 15px 0; font-size: 13px; color: #444; }
+.banner-btn {
+    display: inline-block; background: #25D366; color: white;
+    padding: 10px 25px; border-radius: 50px; text-decoration: none;
+    font-weight: bold; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); transition: transform 0.2s;
+}
+.banner-btn:hover { transform: scale(1.05); }
+
+.job-dashboard { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.job-column { background: white; border-radius: 12px; overflow: hidden; border: 1px solid #e9ecef; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.col-header { padding: 15px; color: white; text-align: center; font-weight: 700; font-size: 16px; text-transform: uppercase; }
+.green { background: #11998e; } .blue { background: #0d6efd; } .orange { background: #f2994a; }
+
+.job-list-container { padding: 10px; background: #f8f9fa; }
+.job-card { background: white; border: 1px solid #e9ecef; border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+.job-header {
+    padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    font-weight: 600; color: #333; font-size: 13px; background: white; transition: 0.3s;
+}
+.job-header:hover { background: #f1f8ff; color: var(--primary-color); }
+.arrow { transition: transform 0.3s; color: #aaa; }
+.job-card.active .arrow { transform: rotate(180deg); color: var(--primary-color); }
+.job-card.active .job-header { border-bottom: 1px solid #eee; color: var(--primary-color); background: #f0f7ff; }
+.job-details { display: none; padding: 15px; background: #fff; font-size: 13px; color: #555; }
+.detail-row { margin-bottom: 8px; border-bottom: 1px dashed #eee; padding-bottom: 5px; display: flex; align-items: center; }
+.detail-row i { color: var(--primary-color); margin-right: 10px; width: 15px; }
+
+.btn-group { display: flex; gap: 10px; margin-top: 15px; }
+.btn-official, .btn-apply { flex: 1; text-align: center; padding: 8px; border-radius: 5px; font-weight: 600; text-decoration: none; font-size: 12px; }
+.btn-official { background: #e9ecef; color: #333; border: 1px solid #ced4da; }
+.btn-apply { background: var(--primary-color); color: white; }
+.full-width { width: 100%; }
+
+/* About Page Styles */
+.about-section {
+    background-color: white; padding: 30px; border-radius: 12px;
+    border: 1px solid #e9ecef; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 20px;
+}
+.profile-card {
+    display: flex; align-items: center; gap: 25px;
+    border-bottom: 2px dashed #e9ecef; padding-bottom: 25px; margin-bottom: 25px;
+}
+.profile-img {
+    width: 140px; height: 140px; border-radius: 50%;
+    border: 4px solid var(--primary-color); padding: 3px; object-fit: cover; flex-shrink: 0;
+}
+.profile-info h2 { color: var(--text-dark); margin: 0 0 10px 0; font-size: 26px; font-weight: 700; }
+.profile-info p { font-size: 15px; line-height: 1.6; color: #555; margin: 0; }
+.shop-details h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 18px; display: flex; align-items: center; gap: 10px; }
+.shop-details p { margin-bottom: 15px; font-size: 14px; color: #444; line-height: 1.6; }
+
+.resume-btn {
+    display: inline-flex; align-items: center; background: linear-gradient(to right, var(--primary-color), #0a58ca);
+    color: white; padding: 10px 25px; text-decoration: none; font-weight: 600;
+    border-radius: 50px; margin-top: 15px; transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 14px; border: none;
+}
+.resume-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3); color: white; }
+.resume-btn i { margin-right: 8px; }
+
+
+/* --- MOBILE RESPONSIVE MEDIA QUERIES (Everything consolidated here) --- */
+@media (max-width: 768px) {
+    .job-dashboard { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 600px) {
-    
+    /* Main Layout */
+    .menu-grid { grid-template-columns: repeat(3, 1fr); }
+    .lpg-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 26px; }
+
+    /* Smart Bar (Navigation + Whatsapp on TOP, Status on BOTTOM) */
     .smart-bar {
-        flex-wrap: wrap; /* Items को अगली लाइन में जाने की अनुमति दें */
-        justify-content: space-between; /* Icon और Whatsapp को दूर-दूर रखें */
+        flex-wrap: wrap; /* Allows items to wrap */
+        justify-content: space-between;
         padding: 8px 10px;
-        gap: 5px; /* Items के बीच थोड़ा गैप */
+        gap: 5px;
     }
-
-    /* 1. Navigation Icons (Left side) - Top Left */
+    
     .bar-left {
-        order: 1; /* यह सबसे पहले दिखेगा */
-        flex: 1; /* बची हुई जगह लेगा */
-        gap: 5px; /* आइकॉन के बीच की दूरी कम की */
+        order: 1; /* First item (Top Left) */
+        flex: 1;
+        gap: 5px;
     }
-
-    /* 2. WhatsApp Button (Right side) - Top Right */
+    
     .bar-right {
-        order: 2; /* यह दूसरे नंबर पर (उसी लाइन में) दिखेगा */
+        order: 2; /* Second item (Top Right) */
     }
 
-    /* 3. Shop Status (Center) - Moves to Bottom */
     .bar-center {
-        order: 3; /* यह तीसरे नंबर पर (नीचे) आएगा */
-        width: 100%; /* पूरी चौड़ाई लेगा ताकि नीचे आए */
+        order: 3; /* Third item (Bottom) */
+        width: 100%; /* Full width forces new line */
         text-align: center;
-        margin-top: 8px; /* ऊपर वाली लाइन से थोड़ी दूरी */
-        background-color: #f8f9fa; /* हल्का बैकग्राउंड ताकि अलग दिखे */
+        margin-top: 8px;
+        background-color: #f8f9fa;
         border-radius: 50px;
         padding: 4px 0;
         font-size: 13px;
         border: 1px solid #eee;
     }
 
-    /* --- मोबाइल पर आइकॉन और बटन की सेटिंग --- */
-    
-    /* नेविगेशन आइकॉन थोड़े छोटे करें ताकि फिट आएं */
-    .nav-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 13px;
-    }
+    /* Icon Sizing for Mobile */
+    .nav-icon { width: 32px; height: 32px; font-size: 13px; }
+    .bar-right a { padding: 6px 12px; font-size: 12px; }
+    .wa-text { display: inline-block; font-size: 11px; }
 
-    /* WhatsApp बटन का टेक्स्ट मोबाइल पर भी दिखाएं (जैसा आपने कहा) */
-    .bar-right a {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-    
-    /* WhatsApp टेक्स्ट छोटा करें ताकि लाइन से बाहर न जाए */
-    .wa-text {
-        display: inline-block; /* मोबाइल पर भी टेक्स्ट दिखेगा */
-        font-size: 11px; 
-    }
-}
-
-/* बहुत छोटे फोन (जैसे iPhone SE) के लिए */
-@media (max-width: 380px) {
-    .wa-text { display: none; } /* अगर स्क्रीन बहुत छोटी है तो सिर्फ WhatsApp का लोगो दिखे */
-    .bar-right a { padding: 8px; width: 32px; height: 32px; justify-content: center; }
-}
-@media (max-width: 400px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
-/* --- TOOLS PAGE STYLES (Add to style.css) --- */
-
-.tool-widget {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #e9ecef;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    text-align: center;
-    max-width: 500px;
-    margin: 0 auto; /* Center alignment */
-}
-
-.calc-input-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-.calc-input-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: #555;
-    margin-bottom: 5px;
-}
-
-.calc-input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-}
-
-.calc-btn {
-    background: linear-gradient(45deg, #0d6efd, #0043a7);
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-    transition: transform 0.2s;
-}
-
-.calc-btn:active { transform: scale(0.98); }
-
-.result-box {
-    margin-top: 20px;
-    padding: 15px;
-    background: #e7f1ff;
-    border-radius: 10px;
-    border: 1px solid #b6d4fe;
-    animation: fadeIn 0.5s;
-}
-
-@keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-/* --- JOB PAGE STYLES (Add to style.css) --- */
-
-/* 1. WhatsApp Notification Banner */
-.apply-banner {
-    background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
-    border: 2px dashed #009688;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 30px;
-    animation: fadeIn 0.8s;
-}
-.banner-content h3 { margin: 0 0 5px 0; color: #00695c; font-size: 18px; }
-.banner-content p { margin: 0 0 15px 0; font-size: 13px; color: #444; }
-.banner-btn {
-    display: inline-block;
-    background: #25D366;
-    color: white;
-    padding: 10px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-    transition: transform 0.2s;
-}
-.banner-btn:hover { transform: scale(1.05); }
-
-/* 2. Job Dashboard Layout */
-.job-dashboard {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-.job-column {
-    background: white; border-radius: 12px;
-    overflow: hidden; border: 1px solid #e9ecef;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-.col-header {
-    padding: 15px; color: white; text-align: center;
-    font-weight: 700; font-size: 16px; text-transform: uppercase;
-}
-.green { background: #11998e; }
-.blue { background: #0d6efd; }
-.orange { background: #f2994a; }
-
-/* 3. Job Card Accordion */
-.job-list-container { padding: 10px; background: #f8f9fa; }
-.job-card {
-    background: white; border: 1px solid #e9ecef;
-    border-radius: 8px; margin-bottom: 10px;
-    overflow: hidden;
-}
-.job-header {
-    padding: 12px 15px; cursor: pointer;
-    display: flex; justify-content: space-between; align-items: center;
-    font-weight: 600; color: #333; font-size: 13px;
-    background: white; transition: 0.3s;
-}
-.job-header:hover { background: #f1f8ff; color: var(--primary-color); }
-.arrow { transition: transform 0.3s; color: #aaa; }
-
-/* Active State */
-.job-card.active .arrow { transform: rotate(180deg); color: var(--primary-color); }
-.job-card.active .job-header { border-bottom: 1px solid #eee; color: var(--primary-color); background: #f0f7ff; }
-
-/* Hidden Details */
-.job-details {
-    display: none; padding: 15px; background: #fff;
-    font-size: 13px; color: #555;
-}
-.detail-row {
-    margin-bottom: 8px; border-bottom: 1px dashed #eee;
-    padding-bottom: 5px; display: flex; align-items: center;
-}
-.detail-row i { color: var(--primary-color); margin-right: 10px; width: 15px; }
-
-/* Buttons */
-.btn-group { display: flex; gap: 10px; margin-top: 15px; }
-.btn-official, .btn-apply {
-    flex: 1; text-align: center; padding: 8px;
-    border-radius: 5px; font-weight: 600; text-decoration: none; font-size: 12px;
-}
-.btn-official { background: #e9ecef; color: #333; border: 1px solid #ced4da; }
-.btn-apply { background: var(--primary-color); color: white; }
-.full-width { width: 100%; }
-
-/* Mobile */
-@media (max-width: 768px) {
-    .job-dashboard { grid-template-columns: 1fr; }
-}
-/* --- ABOUT PAGE STYLES (Add to style.css) --- */
-
-.about-section {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px; /* Changed to match other boxes */
-    border: 1px solid #e9ecef;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    margin-top: 20px;
-}
-
-.profile-card {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    border-bottom: 2px dashed #e9ecef; /* Dashed styling */
-    padding-bottom: 25px;
-    margin-bottom: 25px;
-}
-
-.profile-img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border: 4px solid var(--primary-color); /* Blue Border */
-    padding: 3px; /* Gap between image and border */
-    object-fit: cover;
-    flex-shrink: 0;
-}
-
-.profile-info h2 {
-    color: var(--text-dark);
-    margin: 0 0 10px 0;
-    font-size: 26px;
-    font-weight: 700;
-}
-
-.profile-info p {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #555;
-    margin: 0;
-}
-
-.shop-details h3 {
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.shop-details p {
-    margin-bottom: 15px;
-    font-size: 14px;
-    color: #444;
-    line-height: 1.6;
-}
-
-/* Resume Button Matching Your Theme */
-.resume-btn {
-    display: inline-flex;
-    align-items: center;
-    background: linear-gradient(to right, var(--primary-color), #0a58ca);
-    color: white;
-    padding: 10px 25px;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 50px;
-    margin-top: 15px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    font-size: 14px;
-    border: none;
-}
-
-.resume-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
-    color: white;
-}
-
-.resume-btn i { margin-right: 8px; }
-
-/* Mobile Adjustment */
-@media (max-width: 600px) {
+    /* About Page Mobile */
     .profile-card { flex-direction: column; text-align: center; }
     .profile-info h2 { font-size: 22px; }
+}
+
+@media (max-width: 400px) {
+    .menu-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 380px) {
+    .wa-text { display: none; }
+    .bar-right a { padding: 8px; width: 32px; height: 32px; justify-content: center; }
 }
