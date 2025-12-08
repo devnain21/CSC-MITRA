@@ -180,13 +180,67 @@ body {
 .footer-links a { color: var(--primary-color); text-decoration: none; font-weight: 600; margin: 0 10px; }
 
 /* Mobile */
+/* --- MOBILE RESPONSIVE FIX FOR SMART BAR --- */
 @media (max-width: 600px) {
-    .menu-grid { grid-template-columns: repeat(3, 1fr); }
-    .lpg-grid { grid-template-columns: 1fr; }
-    .header h1 { font-size: 26px; }
-    .smart-bar { padding: 8px 10px; }
-    .wa-text { display: none; }
-    .bar-right a { padding: 8px; border-radius: 50%; width: 35px; height: 35px; justify-content: center; }
+    
+    .smart-bar {
+        flex-wrap: wrap; /* Items को अगली लाइन में जाने की अनुमति दें */
+        justify-content: space-between; /* Icon और Whatsapp को दूर-दूर रखें */
+        padding: 8px 10px;
+        gap: 5px; /* Items के बीच थोड़ा गैप */
+    }
+
+    /* 1. Navigation Icons (Left side) - Top Left */
+    .bar-left {
+        order: 1; /* यह सबसे पहले दिखेगा */
+        flex: 1; /* बची हुई जगह लेगा */
+        gap: 5px; /* आइकॉन के बीच की दूरी कम की */
+    }
+
+    /* 2. WhatsApp Button (Right side) - Top Right */
+    .bar-right {
+        order: 2; /* यह दूसरे नंबर पर (उसी लाइन में) दिखेगा */
+    }
+
+    /* 3. Shop Status (Center) - Moves to Bottom */
+    .bar-center {
+        order: 3; /* यह तीसरे नंबर पर (नीचे) आएगा */
+        width: 100%; /* पूरी चौड़ाई लेगा ताकि नीचे आए */
+        text-align: center;
+        margin-top: 8px; /* ऊपर वाली लाइन से थोड़ी दूरी */
+        background-color: #f8f9fa; /* हल्का बैकग्राउंड ताकि अलग दिखे */
+        border-radius: 50px;
+        padding: 4px 0;
+        font-size: 13px;
+        border: 1px solid #eee;
+    }
+
+    /* --- मोबाइल पर आइकॉन और बटन की सेटिंग --- */
+    
+    /* नेविगेशन आइकॉन थोड़े छोटे करें ताकि फिट आएं */
+    .nav-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    /* WhatsApp बटन का टेक्स्ट मोबाइल पर भी दिखाएं (जैसा आपने कहा) */
+    .bar-right a {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    /* WhatsApp टेक्स्ट छोटा करें ताकि लाइन से बाहर न जाए */
+    .wa-text {
+        display: inline-block; /* मोबाइल पर भी टेक्स्ट दिखेगा */
+        font-size: 11px; 
+    }
+}
+
+/* बहुत छोटे फोन (जैसे iPhone SE) के लिए */
+@media (max-width: 380px) {
+    .wa-text { display: none; } /* अगर स्क्रीन बहुत छोटी है तो सिर्फ WhatsApp का लोगो दिखे */
+    .bar-right a { padding: 8px; width: 32px; height: 32px; justify-content: center; }
 }
 @media (max-width: 400px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
 /* --- TOOLS PAGE STYLES (Add to style.css) --- */
