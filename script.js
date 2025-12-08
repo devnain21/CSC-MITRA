@@ -65,3 +65,13 @@ document.addEventListener("DOMContentLoaded", function() {
             card.classList.add('active');
         }
     };
+// Internet Check Logic
+window.addEventListener('offline', function() {
+    alert("⚠️ Internet connection chala gaya hai. Kripya check karein.");
+    document.body.style.filter = "grayscale(100%)"; // Screen black & white ho jayegi
+});
+
+window.addEventListener('online', function() {
+    alert("✅ Internet wapas aa gaya!");
+    document.body.style.filter = "none"; // Screen wapas rangeen ho jayegi
+});
