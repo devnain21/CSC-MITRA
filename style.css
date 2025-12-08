@@ -340,3 +340,92 @@ body {
 @media (max-width: 768px) {
     .job-dashboard { grid-template-columns: 1fr; }
 }
+/* --- ABOUT PAGE STYLES (Add to style.css) --- */
+
+.about-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px; /* Changed to match other boxes */
+    border: 1px solid #e9ecef;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    border-bottom: 2px dashed #e9ecef; /* Dashed styling */
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color); /* Blue Border */
+    padding: 3px; /* Gap between image and border */
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.profile-info h2 {
+    color: var(--text-dark);
+    margin: 0 0 10px 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.profile-info p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+.shop-details h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.shop-details p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Resume Button Matching Your Theme */
+.resume-btn {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(to right, var(--primary-color), #0a58ca);
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    margin-top: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 14px;
+    border: none;
+}
+
+.resume-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+    color: white;
+}
+
+.resume-btn i { margin-right: 8px; }
+
+/* Mobile Adjustment */
+@media (max-width: 600px) {
+    .profile-card { flex-direction: column; text-align: center; }
+    .profile-info h2 { font-size: 22px; }
+}
