@@ -290,14 +290,22 @@
     </a>
     <script src="script.js"></script>
     <script>
+  // AUTO CACHE CLEAR SCRIPT
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
-        .then(req => console.log('Service Worker Registered!', req))
-        .catch(err => console.log('Service Worker Failed', err));
-    });
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+              // 1. Puraana Service Worker hatao
+              registration.unregister();
+              console.log("Service Worker Unregistered (Cache Cleared)");
+          }
+      });
+      
+      // 2. Agar koi purana cache store hai to use delete karo
+      caches.keys().then(function(names) {
+          for (let name of names) caches.delete(name);
+      });
   }
-    </script>
+</script>
     
 </body>
 </html>
