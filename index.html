@@ -24,18 +24,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div id="app-only-banner" style="display: none; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; background: #d32f2f; color: white; padding: 15px 10px; text-align: center; box-sizing: border-box; box-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+<div id="app-only-banner" style="display: none; position: fixed; top: 0; left: 0; right: 0; width: 100vw; max-width: 100%; z-index: 99999; background: #d32f2f; color: white; padding: 12px; text-align: center; box-sizing: border-box; box-shadow: 0 4px 15px rgba(0,0,0,0.4); margin: 0;">
     
-    <h3 style="margin: 0; font-size: 15px; font-weight: 700; font-family: sans-serif;">⚠️ Update Available</h3>
-    <p style="margin: 5px 0 10px 0; font-size: 12px; font-family: sans-serif;">पुरानी ऐप बंद होने वाली है। नई ऐप डाउनलोड करें।</p>
-    
-    <a href="nain_update.apk" style="background: white; color: #d32f2f; padding: 6px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; font-size: 13px; display: inline-block;">
-        Update Now
-    </a>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
+        <h3 style="margin: 0 0 5px 0; font-size: 16px; font-weight: 700; font-family: sans-serif; line-height: 1.2;">⚠️ New Update Available</h3>
+        <p style="margin: 0 0 10px 0; font-size: 13px; font-family: sans-serif; line-height: 1.4;">पुरानी ऐप बंद होने वाली है। अभी अपडेट करें।</p>
+        
+        <a href="nain_update.apk" style="background: white; color: #d32f2f; padding: 8px 25px; text-decoration: none; font-weight: bold; border-radius: 50px; font-size: 14px; display: inline-block; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+            Update Now
+        </a>
+    </div>
 </div>
 
-<div id="banner-spacer" style="display: none; height: 100px;"></div>
+<div id="banner-spacer" style="display: none; height: 110px;"></div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -49,9 +50,18 @@
 
         // Logic
         if (isApp && !isNewApp) {
-            document.getElementById("app-only-banner").style.display = "block";
-            // Spacer ko bhi dikhao taaki header na chupe
-            document.getElementById("banner-spacer").style.display = "block";
+            var banner = document.getElementById("app-only-banner");
+            var spacer = document.getElementById("banner-spacer");
+            
+            banner.style.display = "block";
+            spacer.style.display = "block";
+            
+            // Force Full Width for Old WebView
+            banner.style.width = "100%";
+            banner.style.left = "0px";
+            banner.style.right = "0px";
+            document.body.style.marginTop = "0px"; // Body ka margin hatana
+            document.body.style.paddingTop = "0px"; // Body ka padding hatana
         }
     });
 </script>
