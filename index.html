@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="update-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 99998;"></div>
+<div id="update-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 99998;"></div>
 
 <div id="update-popup" style="
     display: none; 
@@ -33,57 +33,77 @@
     left: 50%; 
     transform: translate(-50%, -50%); 
     width: 90%; 
-    max-width: 400px; 
+    max-width: 350px; 
     background: white; 
-    padding: 20px; 
-    border-radius: 15px; 
+    padding: 25px 20px; 
+    border-radius: 12px; 
     text-align: center; 
     z-index: 99999; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    font-family: sans-serif;
 ">
-    <div style="font-size: 40px; margin-bottom: 10px;">🚀</div>
+    <div style="font-size: 40px; margin-bottom: 10px;">⚠️</div>
     
-    <h3 style="margin: 0 0 10px 0; color: #d32f2f; font-size: 20px; font-weight: 700;">Update Required</h3>
+    <h3 style="margin: 0 0 10px 0; color: #d32f2f; font-size: 18px; font-weight: bold;">Download Failed?</h3>
     
-    <p style="margin: 0 0 20px 0; font-size: 14px; color: #555; line-height: 1.5;">
-        पुरानी ऐप बंद होने वाली है। बेहतर फीचर्स के लिए अभी अपडेट करें।
+    <p style="font-size: 13px; color: #555; margin-bottom: 20px;">
+        पुरानी ऐप में डायरेक्ट डाउनलोड नहीं हो रहा है। नीचे दिए बटन से <b>लिंक कॉपी करें</b> और <b>Google Chrome</b> में पेस्ट करें।
     </p>
+
+    <input type="text" value="https://naincsc.netlify.app/nain_update.apk" id="apkUrl" style="position: absolute; left: -9999px;">
+
+    <button onclick="copyLink()" style="
+        width: 100%; 
+        background: #0d6efd; 
+        color: white; 
+        border: none; 
+        padding: 12px; 
+        font-size: 16px; 
+        font-weight: bold; 
+        border-radius: 50px; 
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+    ">
+        <i class="fas fa-copy"></i> Link Copy करें
+    </button>
     
-    <a href="intent://naincsc.netlify.app/nain_update.apk#Intent;scheme=https;package=com.android.chrome;end" 
-   style="
-    display: block; 
-    width: 100%; 
-    background: linear-gradient(90deg, #d32f2f, #b71c1c); 
-    color: white; 
-    padding: 12px 0; 
-    text-decoration: none; 
-    font-weight: 600; 
-    border-radius: 50px; 
-    font-size: 16px;
-    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
-">
-    Update Now <i class="fas fa-download"></i>
-</a>
+    <p id="copy-msg" style="display: none; color: green; font-size: 12px; margin-top: 10px; font-weight: bold;">
+        ✅ लिंक कॉपी हो गया! अब Chrome में खोलें।
+    </p>
 </div>
 
 <script>
+    // Copy Function
+    function copyLink() {
+        var copyText = document.getElementById("apkUrl");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // Mobile ke liye
+        navigator.clipboard.writeText(copyText.value).then(function() {
+            // Success
+            showSuccess();
+        }, function() {
+            // Fallback for old phones
+            document.execCommand("copy");
+            showSuccess();
+        });
+    }
+
+    function showSuccess() {
+        var btn = document.querySelector("#update-popup button");
+        btn.innerHTML = "✅ Copied!";
+        btn.style.background = "#198754";
+        document.getElementById("copy-msg").style.display = "block";
+    }
+
+    // Detection Logic (Wahi purana wala)
     document.addEventListener("DOMContentLoaded", function() {
         var userAgent = navigator.userAgent.toLowerCase();
-        
-        // 1. Purani App Detect Karna
         var isApp = userAgent.includes('wv') && userAgent.includes('android');
-        
-        // 2. Nayi App Detect Karna
         var isNewApp = userAgent.includes('nainofficialapp');
 
-        // Logic
         if (isApp && !isNewApp) {
-            // Overlay aur Popup dono ko dikhao
             document.getElementById("update-overlay").style.display = "block";
             document.getElementById("update-popup").style.display = "block";
-            
-            // Body scroll band kar do taaki user sirf update par dhyan de
             document.body.style.overflow = "hidden";
         }
     });
