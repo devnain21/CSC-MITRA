@@ -1,25 +1,30 @@
-// sw.js file ka code
-const CACHE_NAME = "nain-csc-v1";
-const urlsToCache = [
-  "/",
-  "/index.html",
-  // Agar koi image ya css file hai toh yahan add karein
-];
+const CACHE_NAME = 'nain-csc-cache-v2';
 
-// Install: Files ko cache mein save karna
-self.addEventListener("install", (event) => {
+// 1. Install Event: Purana service worker turant hatao aur naya active karo
+self.addEventListener('install', (event) => {
+  self.skipWaiting(); // Turant naya version lagao
+});
+
+self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache);
-    })
+    clients.claim() // Sabhi khule hue pages par control lelo
   );
 });
 
-// Fetch: Net nahi hai toh cache se dikhana
-self.addEventListener("fetch", (event) => {
+// 2. Fetch Event: "Network First" Strategy
+self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
+    fetch(event.request)
+      .then((networkResponse) => {
+        // Agar Net chal raha hai, to naya page dikhao aur cache update karo
+        return caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        });
+      })
+      .catch(() => {
+        // Agar Net BAND hai (Offline), to purana saved page dikhao
+        return caches.match(event.request);
+      })
   );
 });
