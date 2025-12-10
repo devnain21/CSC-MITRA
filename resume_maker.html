@@ -4,52 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Maker - Nain Photostate</title>
+    <meta name="theme-color" content="#d32f2f">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.png" type="image/png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
-        /* --- Resume Specific CSS --- */
+        /* Resume Specific CSS (Kept Original) */
         .maker-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
-        
-        /* Input Form */
         .input-section { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #e9ecef; }
-        .section-title { font-size: 18px; font-weight: 600; color: var(--primary-color); border-bottom: 2px solid #f0f2f5; padding-bottom: 10px; margin-bottom: 20px; }
-        
+        .section-title { font-size: 18px; font-weight: 600; color: #0d6efd; border-bottom: 2px solid #f0f2f5; padding-bottom: 10px; margin-bottom: 20px; }
         .form-control { width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 6px; box-sizing: border-box; font-family: 'Poppins', sans-serif; font-size: 14px; margin-bottom: 15px; }
         .form-label { font-size: 13px; font-weight: 500; margin-bottom: 5px; display: block; }
         
-        /* Preview Area */
-        .preview-section { background: #525659; padding: 20px; border-radius: 12px; display: flex; justify-content: center; }
-        #resume-paper { 
-            width: 210mm; min-height: 297mm; 
-            background: white; padding: 40px; 
-            box-sizing: border-box; color: #333; 
-            font-family: 'Arial', sans-serif; /* Resume looks better in Arial */
-        }
+        .preview-section { background: #525659; padding: 20px; border-radius: 12px; display: flex; justify-content: center; overflow-x: auto; }
+        #resume-paper { width: 210mm; min-height: 297mm; background: white; padding: 40px; box-sizing: border-box; color: #333; font-family: 'Arial', sans-serif; }
 
-        /* Resume Template */
         .res-header { display: flex; justify-content: space-between; border-bottom: 2px solid #333; padding-bottom: 15px; margin-bottom: 20px; }
         .header-text { width: 70%; }
         .res-name { font-size: 26px; font-weight: 700; text-transform: uppercase; color: #222; margin-bottom: 5px; }
-        
-        /* User Photo */
         .header-photo { width: 100px; height: 120px; border: 1px solid #ccc; object-fit: cover; background: #f0f0f0; }
-        
-        .res-section-head { 
-            background: #eee; padding: 5px 10px; font-weight: 700; 
-            text-transform: uppercase; font-size: 15px; margin: 20px 0 10px 0; 
-            border-left: 5px solid #333; 
-        }
-        
+        .res-section-head { background: #eee; padding: 5px 10px; font-weight: 700; text-transform: uppercase; font-size: 15px; margin: 20px 0 10px 0; border-left: 5px solid #333; }
         .res-content { font-size: 14px; line-height: 1.5; text-align: justify; }
-        
         .edu-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         .edu-table th, .edu-table td { border: 1px solid #ccc; padding: 8px; text-align: left; font-size: 13px; }
         .edu-table th { background: #f9f9f9; width: 30%; }
@@ -63,180 +44,198 @@
 </head>
 <body>
 
-    <div class="main-container">
-        <div class="header">
-    <h1>Nain Photostate & Online Center</h1>
-    <p><i class="fas fa-user-tie"></i> By Dev Nain | <i class="fas fa-phone"></i> 8950101037</p>
-    <p class="subtitle" style="color: #c32f19; font-weight: 600; font-size: 14px; margin-top: 5px;">
-        Professional Resume Maker Tool
-    </p>
+<div id="update-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 99998;"></div>
+<div id="update-popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 350px; background: white; padding: 25px; border-radius: 12px; text-align: center; z-index: 99999; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    <h3 style="color: #d32f2f;">Download Failed?</h3>
+    <p>Use Chrome to download update.</p>
+    <input type="text" value="https://naincsc.netlify.app/nain_update.apk" id="apkUrl" style="position: absolute; left: -9999px;">
+    <button onclick="copyLink()" style="background: #0d6efd; color: white; border: none; padding: 10px 20px; border-radius: 5px;">Copy Link</button>
 </div>
 
-        <div class="smart-bar">
-            <div class="bar-left">
-                <a href="index.html" class="nav-icon"><i class="fas fa-home"></i></a>
-                <a href="offline_forms.html" class="nav-icon"><i class="fas fa-file-download"></i></a>
-                <a href="#" class="nav-icon active"><i class="fas fa-file-invoice"></i></a>
-                <a href="contact.html" class="nav-icon"><i class="fas fa-address-book"></i></a>
-            </div>
-            
-            <div class="bar-center" id="shopStatusText"></div>
-
-            <div class="bar-right">
-                <a href="https://chat.whatsapp.com/JTO6kT4j8ykEIgRAVdpags?mode=hqrc" target="_blank">
-                    <i class="fab fa-whatsapp" style="font-size: 18px;"></i> <span class="wa-text">Join</span>
-                </a>
-            </div>
+<div class="main-container">
+    
+    <div class="header">
+        <div class="header-logo">
+            <img src="Shop.jpeg" alt="Logo">
         </div>
-
-        <div class="maker-grid">
-            
-            <div class="input-section">
-                <div class="section-title"><i class="fas fa-camera"></i> Photo & Personal Info</div>
-                
-                <label class="form-label">Upload Photo (Passport Size)</label>
-                <input type="file" class="form-control" id="inpPhoto" accept="image/*" onchange="loadPhoto(event)">
-
-                <label class="form-label">Full Name</label>
-                <input type="text" id="inpName" class="form-control" placeholder="e.g. Amit Kumar" oninput="updateResume()">
-
-                <label class="form-label">Address</label>
-                <input type="text" id="inpAddress" class="form-control" placeholder="VPO Danoda Kalan, Jind" oninput="updateResume()">
-
-                <label class="form-label">Contact No</label>
-                <input type="text" id="inpPhone" class="form-control" placeholder="+91 9999999999" oninput="updateResume()">
-
-                <label class="form-label">Email ID</label>
-                <input type="text" id="inpEmail" class="form-control" placeholder="example@gmail.com" oninput="updateResume()">
-
-                <div class="section-title"><i class="fas fa-bullseye"></i> Career Objective</div>
-                <textarea id="inpObjective" class="form-control" rows="4" oninput="updateResume()" 
-                placeholder="To work in a challenging environment... (Default text will appear automatically if empty)"></textarea>
-
-                <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
-                <label class="form-label">10th (Board, Year, %)</label>
-                <input type="text" id="inp10" class="form-control" placeholder="HBSE Bhiwani, 2018, 85%" oninput="updateResume()">
-
-                <label class="form-label">12th (Board, Year, %)</label>
-                <input type="text" id="inp12" class="form-control" placeholder="HBSE Bhiwani, 2020, 82%" oninput="updateResume()">
-
-                <label class="form-label">Graduation / Other</label>
-                <input type="text" id="inpGrad" class="form-control" placeholder="B.A, KUK University" oninput="updateResume()">
-
-                <div class="section-title"><i class="fas fa-star"></i> Skills & Experience</div>
-                <input type="text" id="inpSkill" class="form-control" placeholder="Computer Basic, Typing, 1 Year Exp..." oninput="updateResume()">
-
-                <div class="section-title"><i class="fas fa-user"></i> Personal Details</div>
-                <div style="display: flex; gap: 10px;">
-                    <input type="text" id="inpDob" class="form-control" placeholder="DOB: 01/01/2000" oninput="updateResume()">
-                    <input type="text" id="inpFather" class="form-control" placeholder="Father's Name" oninput="updateResume()">
-                </div>
-                <div style="display: flex; gap: 10px;">
-                    <input type="text" id="inpGender" class="form-control" placeholder="Gender" oninput="updateResume()">
-                    <input type="text" id="inpMarital" class="form-control" placeholder="Marital Status" oninput="updateResume()">
-                </div>
-
-                <button onclick="downloadPDF()" class="submit-btn"><i class="fas fa-download"></i> Download Resume PDF</button>
-            </div>
-
-            <div class="preview-section">
-                <div id="resume-paper">
-                    
-                    <div class="res-header">
-                        <div class="header-text">
-                            <div class="res-name" id="outName">AMIT KUMAR</div>
-                            <div style="font-size:14px; margin-top:5px; line-height: 1.6;">
-                                <b>Address:</b> <span id="outAddress">VPO Danoda Kalan, Distt Jind (HR)</span><br>
-                                <b>Mobile:</b> <span id="outPhone">+91 9999999999</span><br>
-                                <b>Email:</b> <span id="outEmail">amit@gmail.com</span>
-                            </div>
-                        </div>
-                        <div>
-                            <img id="outPhoto" class="header-photo" src="" alt="Photo" style="display:none;">
-                        </div>
-                    </div>
-
-                    <div class="res-section-head">Career Objective</div>
-                    <div class="res-content" id="outObjective">
-                        To work in a challenging environment where I can utilize my skills and contribute to the growth of the organization while enhancing my own knowledge.
-                    </div>
-
-                    <div class="res-section-head">Academic Qualification</div>
-                    <table class="edu-table">
-                        <tr><th>Class</th><th>Board / University / Details</th></tr>
-                        <tr><td><b>10th</b></td><td id="out10">-</td></tr>
-                        <tr><td><b>12th</b></td><td id="out12">-</td></tr>
-                        <tr><td><b>Graduation</b></td><td id="outGrad">-</td></tr>
-                    </table>
-
-                    <div class="res-section-head">Skills & Experience</div>
-                    <ul class="res-content" style="margin-top:5px; padding-left: 20px;">
-                        <li id="outSkill">Basic Computer Knowledge</li>
-                        <li>Hardworking and Punctual</li>
-                        <li>Language Known: Hindi & English</li>
-                    </ul>
-
-                    <div class="res-section-head">Personal Details</div>
-                    <table class="edu-table" style="border:none;">
-                        <tr><td style="width:30%; border:none;"><b>Father's Name</b></td><td style="border:none;" id="outFather">-</td></tr>
-                        <tr><td style="border:none;"><b>Date of Birth</b></td><td style="border:none;" id="outDob">-</td></tr>
-                        <tr><td style="border:none;"><b>Gender</b></td><td style="border:none;" id="outGender">Male</td></tr>
-                        <tr><td style="border:none;"><b>Marital Status</b></td><td style="border:none;" id="outMarital">Unmarried</td></tr>
-                        <tr><td style="border:none;"><b>Nationality</b></td><td style="border:none;">Indian</td></tr>
-                    </table>
-
-                    <div class="res-section-head">Declaration</div>
-                    <div class="res-content">
-                        I hereby declare that the above information is true to the best of my knowledge.
-                    </div>
-
-                    <div style="margin-top:50px; display:flex; justify-content:space-between;">
-                        <div>
-                            <b>Date:</b> <span id="currentDate"></span><br>
-                            <b>Place:</b> Haryana
-                        </div>
-                        <div style="text-align: right;">
-                            <br>
-                            <b>(Signature)</b>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-        
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="index.html" style="color: var(--primary-color); font-weight: 600; text-decoration: none;">&larr; Back to Home</a>
+        <div class="header-content">
+            <h1>NAIN PHOTOSTATE & ONLINE CENTER</h1>
+            <p><i class="fas fa-user-tie"></i> By Dev Nain | <i class="fas fa-phone"></i> 8950101037</p>
+            <p class="subtitle">"Professional Resume Maker Tool"</p>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <div class="smart-bar">
+        <div class="bar-menu">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="offline_forms.html" class="nav-btn">Forms</a>
+            <a href="jobs.html" class="nav-btn">Jobs</a>
+            <a href="tools.html" class="nav-btn active">Tools</a> </div>
+        <div class="bar-wa">
+            <a href="https://chat.whatsapp.com/JTO6kT4j8ykEIgRAVdpags?mode=hqrc" target="_blank">
+                <i class="fab fa-whatsapp"></i> Join
+            </a>
+        </div>
+    </div>
 
-    <script>
-    // 1. Set Today's Date
+    <div class="maker-grid">
+        
+        <div class="input-section">
+            <div class="section-title"><i class="fas fa-camera"></i> Photo & Personal Info</div>
+            
+            <label class="form-label">Upload Photo (Passport Size)</label>
+            <input type="file" class="form-control" id="inpPhoto" accept="image/*" onchange="loadPhoto(event)">
+
+            <label class="form-label">Full Name</label>
+            <input type="text" id="inpName" class="form-control" placeholder="e.g. Amit Kumar" oninput="updateResume()">
+
+            <label class="form-label">Address</label>
+            <input type="text" id="inpAddress" class="form-control" placeholder="VPO Danoda Kalan, Jind" oninput="updateResume()">
+
+            <label class="form-label">Contact No</label>
+            <input type="text" id="inpPhone" class="form-control" placeholder="+91 9999999999" oninput="updateResume()">
+
+            <label class="form-label">Email ID</label>
+            <input type="text" id="inpEmail" class="form-control" placeholder="example@gmail.com" oninput="updateResume()">
+
+            <div class="section-title"><i class="fas fa-bullseye"></i> Career Objective</div>
+            <textarea id="inpObjective" class="form-control" rows="4" oninput="updateResume()" 
+            placeholder="To work in a challenging environment... (Default text will appear automatically if empty)"></textarea>
+
+            <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
+            <label class="form-label">10th (Board, Year, %)</label>
+            <input type="text" id="inp10" class="form-control" placeholder="HBSE Bhiwani, 2018, 85%" oninput="updateResume()">
+
+            <label class="form-label">12th (Board, Year, %)</label>
+            <input type="text" id="inp12" class="form-control" placeholder="HBSE Bhiwani, 2020, 82%" oninput="updateResume()">
+
+            <label class="form-label">Graduation / Other</label>
+            <input type="text" id="inpGrad" class="form-control" placeholder="B.A, KUK University" oninput="updateResume()">
+
+            <div class="section-title"><i class="fas fa-star"></i> Skills & Experience</div>
+            <input type="text" id="inpSkill" class="form-control" placeholder="Computer Basic, Typing, 1 Year Exp..." oninput="updateResume()">
+
+            <div class="section-title"><i class="fas fa-user"></i> Personal Details</div>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="inpDob" class="form-control" placeholder="DOB: 01/01/2000" oninput="updateResume()">
+                <input type="text" id="inpFather" class="form-control" placeholder="Father's Name" oninput="updateResume()">
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="inpGender" class="form-control" placeholder="Gender" oninput="updateResume()">
+                <input type="text" id="inpMarital" class="form-control" placeholder="Marital Status" oninput="updateResume()">
+            </div>
+
+            <button onclick="downloadPDF()" class="submit-btn"><i class="fas fa-download"></i> Download Resume PDF</button>
+        </div>
+
+        <div class="preview-section">
+            <div id="resume-paper">
+                <div class="res-header">
+                    <div class="header-text">
+                        <div class="res-name" id="outName">AMIT KUMAR</div>
+                        <div style="font-size:14px; margin-top:5px; line-height: 1.6;">
+                            <b>Address:</b> <span id="outAddress">VPO Danoda Kalan, Distt Jind (HR)</span><br>
+                            <b>Mobile:</b> <span id="outPhone">+91 9999999999</span><br>
+                            <b>Email:</b> <span id="outEmail">amit@gmail.com</span>
+                        </div>
+                    </div>
+                    <div>
+                        <img id="outPhoto" class="header-photo" src="" alt="Photo" style="display:none;">
+                    </div>
+                </div>
+
+                <div class="res-section-head">Career Objective</div>
+                <div class="res-content" id="outObjective">
+                    To work in a challenging environment where I can utilize my skills and contribute to the growth of the organization while enhancing my own knowledge.
+                </div>
+
+                <div class="res-section-head">Academic Qualification</div>
+                <table class="edu-table">
+                    <tr><th>Class</th><th>Board / University / Details</th></tr>
+                    <tr><td><b>10th</b></td><td id="out10">-</td></tr>
+                    <tr><td><b>12th</b></td><td id="out12">-</td></tr>
+                    <tr><td><b>Graduation</b></td><td id="outGrad">-</td></tr>
+                </table>
+
+                <div class="res-section-head">Skills & Experience</div>
+                <ul class="res-content" style="margin-top:5px; padding-left: 20px;">
+                    <li id="outSkill">Basic Computer Knowledge</li>
+                    <li>Hardworking and Punctual</li>
+                    <li>Language Known: Hindi & English</li>
+                </ul>
+
+                <div class="res-section-head">Personal Details</div>
+                <table class="edu-table" style="border:none;">
+                    <tr><td style="width:30%; border:none;"><b>Father's Name</b></td><td style="border:none;" id="outFather">-</td></tr>
+                    <tr><td style="border:none;"><b>Date of Birth</b></td><td style="border:none;" id="outDob">-</td></tr>
+                    <tr><td style="border:none;"><b>Gender</b></td><td style="border:none;" id="outGender">Male</td></tr>
+                    <tr><td style="border:none;"><b>Marital Status</b></td><td style="border:none;" id="outMarital">Unmarried</td></tr>
+                    <tr><td style="border:none;"><b>Nationality</b></td><td style="border:none;">Indian</td></tr>
+                </table>
+
+                <div class="res-section-head">Declaration</div>
+                <div class="res-content">
+                    I hereby declare that the above information is true to the best of my knowledge.
+                </div>
+
+                <div style="margin-top:50px; display:flex; justify-content:space-between;">
+                    <div>
+                        <b>Date:</b> <span id="currentDate"></span><br>
+                        <b>Place:</b> Haryana
+                    </div>
+                    <div style="text-align: right;">
+                        <br>
+                        <b>(Signature)</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-links">
+        <div style="margin-top:10px;">
+            <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="privacy.html">Privacy</a>
+        </div>
+        <p>&copy; 2025 Nain Photostate & Online Center</p>
+    </div>
+
+</div>
+
+<a href="https://wa.me/918950101037" target="_blank" class="wa-float">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="script.js"></script>
+<script>
+    function copyLink() {
+        var copyText = document.getElementById("apkUrl");
+        copyText.select();
+        navigator.clipboard.writeText(copyText.value);
+        alert("Link Copied!");
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        var userAgent = navigator.userAgent.toLowerCase();
+        if (userAgent.includes('wv') && userAgent.includes('android') && !userAgent.includes('nainofficialapp')) {
+            document.getElementById("update-overlay").style.display = "block";
+            document.getElementById("update-popup").style.display = "block";
+        }
+    });
+
+    // --- RESUME LOGIC ---
     document.getElementById('currentDate').innerText = new Date().toLocaleDateString();
 
-    // 2. Update Resume Logic
     function updateResume() {
         function val(id, def) { return document.getElementById(id).value || def; }
-
         document.getElementById('outName').innerText = val('inpName', 'AMIT KUMAR');
         document.getElementById('outAddress').innerText = val('inpAddress', 'VPO Danoda Kalan, Distt Jind (HR)');
         document.getElementById('outPhone').innerText = val('inpPhone', '+91 9999999999');
         document.getElementById('outEmail').innerText = val('inpEmail', 'example@gmail.com');
-        
-        // Objective
         let obj = document.getElementById('inpObjective').value;
-        let defaultObj = "To work in a challenging environment where I can utilize my skills and contribute to the growth of the organization while enhancing my own knowledge.";
-        document.getElementById('outObjective').innerText = obj ? obj : defaultObj;
-
-        // Education
+        document.getElementById('outObjective').innerText = obj ? obj : "To work in a challenging environment where I can utilize my skills and contribute to the growth of the organization while enhancing my own knowledge.";
         document.getElementById('out10').innerText = val('inp10', '-');
         document.getElementById('out12').innerText = val('inp12', '-');
         document.getElementById('outGrad').innerText = val('inpGrad', '-');
-        
-        // Skills & Personal
         document.getElementById('outSkill').innerText = val('inpSkill', 'Basic Computer Knowledge');
         document.getElementById('outFather').innerText = val('inpFather', '-');
         document.getElementById('outDob').innerText = val('inpDob', '-');
@@ -244,7 +243,6 @@
         document.getElementById('outMarital').innerText = val('inpMarital', 'Unmarried');
     }
 
-    // 3. Handle Photo Upload
     function loadPhoto(event) {
         const image = document.getElementById('outPhoto');
         if(event.target.files && event.target.files[0]) {
@@ -253,30 +251,26 @@
         }
     }
 
-    // 4. FIX: DOWNLOAD PDF FUNCTION
     function downloadPDF() {
-        // Element aur Section dono ko select karein
+        // App Check: Agar App me hai, to alert do ki Chrome use karein (Agar java redirect fail hua to)
+        if (navigator.userAgent.includes("NainOfficialApp")) {
+            alert("Please open this page in Google Chrome to download PDF.");
+            return;
+        }
+
         const element = document.getElementById('resume-paper');
         const previewSection = document.querySelector('.preview-section');
-
-        // Step A: Mobile par section hidden hota hai, usse pehle SHOW karein
-        previewSection.style.display = 'flex'; 
+        previewSection.style.display = 'flex'; // Mobile fix
         
         const opt = {
-            margin:       0,
-            filename:     'Nain_Resume.pdf',
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { 
-                scale: 2, 
-                useCORS: true,  // Photo load hone ke liye jaruri
-                scrollY: 0      // Page scroll hone par blank aane se rokta hai
-            },
-            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            margin: 0,
+            filename: 'Nain_Resume.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
 
-        // Step B: PDF Banayein aur fir wapis Hide karein
         html2pdf().set(opt).from(element).save().then(function(){
-            // Agar screen choti hai (Mobile), to wapis chupa do
             if(window.innerWidth < 900) {
                 previewSection.style.display = 'none';
             }
