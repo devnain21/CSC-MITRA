@@ -27,3 +27,15 @@ window.toggleJob = function(header) {
 
 window.addEventListener('offline', function() { alert("⚠️ No Internet"); document.body.style.filter = "grayscale(100%)"; });
 window.addEventListener('online', function() { alert("✅ Internet Back"); document.body.style.filter = "none"; });
+/* --- SIDEBAR LOGIC --- */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "280px"; // Menu ki choudai
+    document.getElementById("menu-overlay").style.display = "block"; // Kala parda dikhao
+    document.body.style.overflow = "hidden"; // Piche ka scroll band karo
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("menu-overlay").style.display = "none";
+    document.body.style.overflow = "auto"; // Scroll wapis chalu
+}
