@@ -2,147 +2,153 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Nain Photostate & Online Center - Danoda Kalan | CSC Center</title>
-
-<meta name="description" content="Nain Photostate & Online Center, Danoda Kalan (Jind). Apply for Aadhar Card, Family ID, Pan Card, Haryana Govt Jobs, Admit Cards & All Online Forms. Best CSC Center.">
-
-<meta name="keywords" content="Nain Photostate, CSC Center Danoda, Online Forms Haryana, Family ID Correction, Aadhar Card Center, Pan Card Apply, Sarkari Naukri Form, Danoda Kalan, Dev Nain, Photostat Shop Jind">
-
-<meta name="author" content="Dev Nain">
-<meta name="geo.region" content="IN-HR" />
-<meta name="geo.placename" content="Danoda Kalan" />
-
-<meta property="og:title" content="Nain Photostate - All Online Services">
-<meta property="og:description" content="Click to Apply for Jobs, Download Forms & Check Status.">
-<meta property="og:image" content="https://naincsc.netlify.app/shop.jpg"> <meta property="og:url" content="https://naincsc.netlify.app/">
-    <title>Nain Photostate - Offline Forms</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Forms - Nain Photostate</title>
+    <meta name="theme-color" content="#d32f2f">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="main-container">
-        <div class="header">
-            <h1>Nain Photostate & Online Center</h1>
+<div id="update-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 99998;"></div>
+<div id="update-popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 350px; background: white; padding: 25px; border-radius: 12px; text-align: center; z-index: 99999; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    <h3 style="color: #d32f2f;">Download Failed?</h3>
+    <p>Use Chrome to download update.</p>
+    <input type="text" value="https://naincsc.netlify.app/nain_update.apk" id="apkUrl" style="position: absolute; left: -9999px;">
+    <button onclick="copyLink()" style="background: #0d6efd; color: white; border: none; padding: 10px 20px; border-radius: 5px;">Copy Link</button>
+</div>
+
+<div class="main-container">
+    
+    <div class="header">
+        <div class="header-logo">
+            <img src="Shop.jpg" alt="Logo">
+        </div>
+        <div class="header-content">
+            <h1>NAIN PHOTOSTATE & ONLINE CENTER</h1>
             <p><i class="fas fa-user-tie"></i> By Dev Nain | <i class="fas fa-phone"></i> 8950101037</p>
-            <p style="font-size: 13px; color: #666;">Offline Forms Download Center</p>
-        </div>
-
-        <div class="smart-bar">
-            <div class="bar-left">
-                <a href="index.html" class="nav-icon"><i class="fas fa-home"></i></a>
-                <a href="offline_forms.html" class="nav-icon active"><i class="fas fa-file-download"></i></a>
-                <a href="jobs.html" class="nav-icon"><i class="fas fa-briefcase"></i></a>
-                <a href="tools.html" class="nav-icon"><i class="fas fa-tools"></i></a>
-                <a href="about.html" class="nav-icon" title="About Us"><i class="fas fa-info-circle"></i></a>
-                <a href="contact.html" class="nav-icon"><i class="fas fa-address-book"></i></a>
-            </div>
-            
-            <div class="bar-center" id="shopStatusText">
-                <span class="status-badge">Checking...</span>
-            </div>
-
-            <div class="bar-right">
-                <a href="https://chat.whatsapp.com/JTO6kT4j8ykEIgRAVdpags?mode=hqrc" target="_blank">
-                    <i class="fab fa-whatsapp" style="font-size: 18px;"></i>
-                    <span class="wa-text">Join Grp</span>
-                </a>
-            </div>
-        </div>
-
-        <div class="search-container">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" id="searchInput" class="search-input" placeholder="Search for forms (e.g., Aadhar, Birth, Bank)...">
-        </div>
-
-        <div class="menu-grid" id="menuGrid">
-            
-            <a href="forms/Aadhar_Update.pdf" target="_blank" class="menu-box">
-                <i class="fas fa-fingerprint"></i>
-                <i class="fas fa-download download-badge"></i>
-                <span>Aadhar Update Form</span>
-            </a>
-
-            <a href="forms/Domisial.pdf" target="_blank" class="menu-box">
-                <i class="fas fa-house-user"></i>
-                <i class="fas fa-download download-badge"></i>
-                <span>Domicile Form</span>
-            </a>
-
-            <a href="forms/Form_49A.pdf" target="_blank" class="menu-box">
-                <i class="fas fa-id-card"></i>
-                <i class="fas fa-download download-badge"></i>
-                <span>Pan Card Apply</span>
-            </a>
-
-            <a href="forms/birth-recoad-name-add.pdf" target="_blank" class="menu-box">
-                <i class="fas fa-baby"></i>
-                <i class="fas fa-download download-badge"></i>
-                <span>Birth Cert Correction</span>
-            </a>
-
-            <a href="forms/income-self-verify.pdf" target="_blank" class="menu-box">
-                <i class="fas fa-rupee-sign"></i>
-                <i class="fas fa-download download-badge"></i>
-                <span>Income Self Verify</span>
-            </a>
-
-            <a href="forms/saksham-undertaking.pdf" target="_blank" class="menu-box">
-                <i class="fas fa-file-signature"></i>
-                <i class="fas fa-download download-badge"></i>
-                <span>Saksham Undertaking</span>
-            </a>
-
-            <a href="forms/Mukhya-Mantri-Matritva-Sahayta-Yojna-Form.pdf" target="_blank" class="menu-box">
-                <i class="fas fa-female"></i>
-                <i class="fas fa-download download-badge"></i>
-                <span>Matritva Sahayta Yojna</span>
-            </a>
-
-            <a href="forms/Bank_NOC.pdf" target="_blank" class="menu-box">
-                <i class="fas fa-university"></i>
-                <i class="fas fa-download download-badge"></i>
-                <span>Bank NOC Form</span>
-            </a>
-
-            <a href="forms/PM-KISSAN-REPORT-1.pdf" target="_blank" class="menu-box">
-                <i class="fas fa-tractor"></i>
-                <i class="fas fa-download download-badge"></i>
-                <span>PM Kissan Form</span>
-            </a>
-
-            <a href="forms/ration_card.pdf" target="_blank" class="menu-box">
-                <i class="fas fa-utensils"></i>
-                <i class="fas fa-download download-badge"></i>
-                <span>Form not Update</span>
-            </a>
-
-            <a href="forms/bank_kyc.pdf" target="_blank" class="menu-box">
-                <i class="fas fa-user-check"></i>
-                <i class="fas fa-download download-badge"></i>
-                <span>Form Not Update</span>
-            </a>
-
-            <a href="forms/other_form.pdf" target="_blank" class="menu-box">
-                <i class="fas fa-folder-open"></i>
-                <i class="fas fa-download download-badge"></i>
-                <span>Other General Application</span>
-            </a>
-
-        </div>
-
-        <div class="footer-note">
-            <p><i class="fas fa-info-circle"></i> Note: Click on any box to view or print the PDF form.</p>
-             <p>&copy; 2025 Nain Photostate & Online Center.Design by Dev Nain</p>
+            <p class="subtitle">"Offline Forms Download Center"</p>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <div class="smart-bar">
+        <div class="bar-menu">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="offline_forms.html" class="nav-btn active">Forms</a> <a href="jobs.html" class="nav-btn">Jobs</a>
+            <a href="tools.html" class="nav-btn">Tools</a>
+            <a href="about.html" class="nav-btn">About</a>
+            <a href="contact.html" class="nav-btn">Contact</a>
+        </div>
+        <div class="bar-wa">
+            <a href="https://chat.whatsapp.com/JTO6kT4j8ykEIgRAVdpags?mode=hqrc" target="_blank">
+                <i class="fab fa-whatsapp"></i> Join
+            </a>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search for forms (e.g., Aadhar, Birth, Bank)...">
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+        
+        <a href="forms/Aadhar_Update.pdf" target="_blank" class="menu-box">
+            <i class="fas fa-fingerprint"></i>
+            <span>Aadhar Update Form</span>
+        </a>
+
+        <a href="forms/Domisial.pdf" target="_blank" class="menu-box">
+            <i class="fas fa-house-user"></i>
+            <span>Domicile Form</span>
+        </a>
+
+        <a href="forms/Form_49A.pdf" target="_blank" class="menu-box">
+            <i class="fas fa-id-card"></i>
+            <span>Pan Card Apply</span>
+        </a>
+
+        <a href="forms/birth-recoad-name-add.pdf" target="_blank" class="menu-box">
+            <i class="fas fa-baby"></i>
+            <span>Birth Cert Correction</span>
+        </a>
+
+        <a href="forms/income-self-verify.pdf" target="_blank" class="menu-box">
+            <i class="fas fa-rupee-sign"></i>
+            <span>Income Self Verify</span>
+        </a>
+
+        <a href="forms/saksham-undertaking.pdf" target="_blank" class="menu-box">
+            <i class="fas fa-file-signature"></i>
+            <span>Saksham Undertaking</span>
+        </a>
+
+        <a href="forms/Mukhya-Mantri-Matritva-Sahayta-Yojna-Form.pdf" target="_blank" class="menu-box">
+            <i class="fas fa-female"></i>
+            <span>Matritva Sahayta Yojna</span>
+        </a>
+
+        <a href="forms/Bank_NOC.pdf" target="_blank" class="menu-box">
+            <i class="fas fa-university"></i>
+            <span>Bank NOC Form</span>
+        </a>
+
+        <a href="forms/PM-KISSAN-REPORT-1.pdf" target="_blank" class="menu-box">
+            <i class="fas fa-tractor"></i>
+            <span>PM Kissan Form</span>
+        </a>
+
+        <a href="forms/ration_card.pdf" target="_blank" class="menu-box">
+            <i class="fas fa-utensils"></i>
+            <span>Form not Update</span>
+        </a>
+
+        <a href="forms/bank_kyc.pdf" target="_blank" class="menu-box">
+            <i class="fas fa-user-check"></i>
+            <span>Form Not Update</span>
+        </a>
+
+        <a href="forms/other_form.pdf" target="_blank" class="menu-box">
+            <i class="fas fa-folder-open"></i>
+            <span>Other General Application</span>
+        </a>
+
+    </div>
+
+    <div class="footer-links">
+        <p style="font-size:12px; color:#666; margin-bottom:10px;"><i class="fas fa-info-circle"></i> Click on any box to download PDF.</p>
+        <div style="margin-top:10px;">
+            <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="privacy.html">Privacy</a>
+        </div>
+        <p>&copy; 2025 Nain Photostate & Online Center</p>
+    </div>
+
+</div>
+
+<a href="https://wa.me/918950101037" target="_blank" class="wa-float">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="script.js"></script>
+<script>
+    function copyLink() {
+        var copyText = document.getElementById("apkUrl");
+        copyText.select();
+        navigator.clipboard.writeText(copyText.value);
+        alert("Link Copied!");
+    }
+    // Update Detection Logic
+    document.addEventListener("DOMContentLoaded", function() {
+        var userAgent = navigator.userAgent.toLowerCase();
+        if (userAgent.includes('wv') && userAgent.includes('android') && !userAgent.includes('nainofficialapp')) {
+            document.getElementById("update-overlay").style.display = "block";
+            document.getElementById("update-popup").style.display = "block";
+        }
+    });
+</script>
 </body>
 </html>
