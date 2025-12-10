@@ -198,3 +198,92 @@ body {
     .contact-grid { grid-template-columns: 1fr; }
     .profile-card { flex-direction: column; text-align: center; }
 }
+/* --- SIDEBAR & HAMBURGER MENU (New Addition) --- */
+
+/* Sidebar (Hidden by default) */
+.sidenav {
+    height: 100%;
+    width: 0; /* JS se open hoga */
+    position: fixed;
+    z-index: 2000; /* Sabse upar */
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth Slide Effect */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    padding-top: 60px;
+}
+
+/* Sidebar Links */
+.sidenav a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #333;
+    display: block;
+    transition: 0.3s;
+    font-weight: 600;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.sidenav a:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+    padding-left: 35px; /* Thoda right khiskega */
+}
+
+.sidenav i {
+    width: 25px; 
+    color: var(--primary-color);
+}
+
+/* Close Button (X) inside Sidebar */
+.sidenav .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    margin-left: 50px;
+    border: none;
+    color: #999;
+}
+
+/* Overlay (Black Background jab menu khule) */
+#menu-overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1500;
+    backdrop-filter: blur(2px); /* Dhundhla effect */
+}
+
+/* Hamburger Icon (3 Lines) - Hidden on Desktop */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #f0f2f5;
+}
+
+/* --- MOBILE SPECIFIC CHANGES --- */
+@media (max-width: 768px) {
+    /* Desktop Menu ko chupao */
+    .bar-menu { display: none !important; }
+    
+    /* Hamburger ko dikhao */
+    .hamburger { display: block; }
+    
+    /* Smart Bar Layout adjust karo */
+    .smart-bar { 
+        justify-content: space-between; 
+        padding: 12px 15px;
+    }
+}
