@@ -12,5 +12,19 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        // Hum '/sw.js' isliye likh rahe hain kyunki public folder ki file root me milti hai
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW registered: ', registration);
+          })
+          .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
   </body>
 </html>
