@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+Disallow: /vault
+Disallow: /my-resume
+
+Host: https://devnain21.github.io/CSC
+Sitemap: https://devnain21.github.io/CSC/sitemap.xml
