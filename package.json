@@ -1,0 +1,32 @@
+{
+  "name": "nain-photostate",
+  "version": "1.0.0",
+  "description": "Nain Photostate official Next.js app",
+  "author": "Dev Nain",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "firebase": "^12.11.0",
+    "next": "^15.3.0",
+    "pdfjs-dist": "^3.11.174",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "vanilla-tilt": "^1.8.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^16.5.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
+  }
+}

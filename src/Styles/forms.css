@@ -1,0 +1,290 @@
+/* =========================================
+   FORMS PAGE - DOCUMENT LIBRARY STYLES
+========================================= */
+.forms-page-container {
+    animation: fadeIn 0.5s ease;
+}
+
+/* VIP Header */
+.forms-vip-header {
+    background: var(--root-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.fvh-content h2 {
+    margin: 0 0 10px 0;
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.5px;
+}
+
+.fvh-content p {
+    margin: 0;
+    color: #64748b;
+    font-weight: 500;
+    font-size: 15px;
+}
+    .forms-stats-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: -10px 0 18px;
+    }
+
+    .form-stat-box {
+        background: var(--root-color);
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .form-stat-box strong {
+        display: block;
+        color: #1d4ed8;
+        font-size: 20px;
+        font-weight: 900;
+    }
+
+    .form-stat-box span {
+        color: #64748b;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .forms-filter-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 18px;
+    }
+
+    .forms-filter-btn {
+        border: 1px solid #dbeafe;
+        background: #eff6ff;
+        color: #1e40af;
+        border-radius: 999px;
+        padding: 7px 12px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .forms-filter-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .forms-filter-btn.active {
+        background: #2563eb;
+        border-color: #2563eb;
+        color: #fff;
+    }
+
+/* Document Grid Layout */
+.doc-library-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* कंप्यूटर पर 3 कॉलम */
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* 📄 The PDF File Card */
+.doc-file-card {
+    display: flex;
+    align-items: center;
+    background: var(--root-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    text-decoration: none;
+    color: inherit;
+        transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.doc-file-card:hover {
+    transform: translateY(-4px);
+    border-color: #bfdbfe;
+    box-shadow: 0 12px 25px rgba(13, 110, 253, 0.1);
+    background: var(--root-color);
+}
+
+/* 🔴 Red PDF Icon Box */
+.doc-icon-box {
+    width: 45px;
+    height: 45px;
+    background: var(--root-color); /* हल्का लाल */
+    color: #8119a6; /* गहरा लाल */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    transition: 0.3s;
+}
+
+
+
+/* Text Info */
+.doc-file-info {
+    flex: 1;
+    overflow: hidden;
+}
+
+.doc-file-info h4 {
+    margin: 0 0 4px 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* अगर नाम बड़ा हो तो ... आ जाएगा */
+}
+    .form-popular-badge {
+        margin-left: 6px;
+        background: #fee2e2;
+        color: #b91c1c;
+        border-radius: 6px;
+        padding: 2px 6px;
+        font-size: 10px;
+        font-weight: 800;
+    }
+
+    .form-meta-tags {
+        display: flex;
+        gap: 6px;
+        margin-top: 7px;
+    }
+
+    .form-meta-tag {
+        background: #f1f5f9;
+        color: #475569;
+        border-radius: 999px;
+        padding: 2px 8px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+
+.doc-file-info span {
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+/* ⬇️ Download Arrow */
+.doc-download-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #64748b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+ .doc-download-btn:hover {
+    background: #0d6efd;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+    .doc-actions-inline {
+        display: flex;
+        gap: 8px;
+        margin-left: 8px;
+    }
+
+    .doc-action-mini {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        background: #f8fafc;
+        color: #475569;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.2s;
+    }
+
+    .doc-action-mini:hover {
+        background: #2563eb;
+        border-color: #2563eb;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+/* Not Found Message */
+.no-form-found {
+    text-align: center;
+    padding: 40px;
+    color: #94a3b8;
+}
+.no-form-found i {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #cbd5e1;
+}
+.no-form-found p {
+    font-weight: 600;
+    font-size: 15px;
+    margin: 0;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 900px) {
+    .doc-library-grid { grid-template-columns: repeat(2, 1fr); } /* टैबलेट पर 2 कॉलम */
+}
+@media (max-width: 600px) {
+    .doc-library-grid { grid-template-columns: 1fr; } /* मोबाइल पर 1 कॉलम */
+    .fvh-content h2 { font-size: 22px; }
+        .forms-stats-row { grid-template-columns: 1fr; }
+}
+
+/* =========================================
+   🌙 DARK MODE ADJUSTMENTS (FORMS)
+========================================= */
+[data-theme="dark"] .fvh-content h2 {
+    color: #f8fafc;
+    font-weight: 600;
+}
+[data-theme="dark"] .fvh-content p,
+[data-theme="dark"] .doc-file-info span,
+[data-theme="dark"] .no-form-found p {
+    color: #cbd5e1;
+    font-weight: 500;
+}
+[data-theme="dark"] .doc-file-info h4 {
+    color: #e5e7eb;
+    font-weight: 500;
+}
+[data-theme="dark"] .doc-file-card,
+[data-theme="dark"] .doc-icon-box,
+[data-theme="dark"] .doc-download-btn {
+    background: #111827;
+    border-color: #1f2937;
+}
+[data-theme="dark"] .form-stat-box { background: #111827; border-color: #1f2937; }
+[data-theme="dark"] .form-stat-box strong { color: #93c5fd; }
+[data-theme="dark"] .form-stat-box span { color: #94a3b8; }
+[data-theme="dark"] .forms-filter-btn { background: #1e293b; border-color: #334155; color: #cbd5e1; }
+[data-theme="dark"] .forms-filter-btn.active { background: #2563eb; border-color: #2563eb; color: #fff; }
+[data-theme="dark"] .form-popular-badge { background: rgba(239,68,68,0.2); color: #fca5a5; }
+[data-theme="dark"] .form-meta-tag { background: #1e293b; color: #94a3b8; }
+[data-theme="dark"] .doc-action-mini { background: #1e293b; border-color: #334155; color: #cbd5e1; }
