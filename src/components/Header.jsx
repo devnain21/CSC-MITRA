@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import { withBasePath } from '../lib/seo'
 
 const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -43,7 +44,7 @@ const Header = () => {
       <header className="ultra-pro-header">
           <div className="uph-left">
               <div className="uph-logo-wrapper">
-                  <img src="/images/Shop.jpeg" alt="Nain Photostate Logo" className="uph-logo" />
+                  <img src={withBasePath('/images/Shop.jpeg')} alt="Nain Photostate Logo" className="uph-logo" />
                   <div className="uph-logo-ring"></div>
               </div>
               

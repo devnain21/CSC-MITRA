@@ -125,7 +125,7 @@
     position: absolute;
     inset: 0;
     background: inherit;
-    background-image: url("/background.jpg");
+    background-image: var(--site-background-image);
     background-size: cover;
     background-position: center;
     filter: blur(40px) brightness(0.85);

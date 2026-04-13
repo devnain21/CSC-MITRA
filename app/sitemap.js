@@ -1,5 +1,7 @@
     import { getAbsoluteUrl, siteConfig } from '@/src/lib/seo'
 
+    export const dynamic = 'force-static'
+
 const SITEMAP_ROUTES = [
   {
     path: '/',

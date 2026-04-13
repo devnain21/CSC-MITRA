@@ -36,7 +36,7 @@ body {
     color: var(--text-dark);
     min-height: 100vh;
 
-    background-image: url("/background.jpg");
+    background-image: var(--site-background-image);
     background-size: cover;
     background-position: center;
     background-attachment: scroll;

@@ -1,11 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
+import { withBasePath } from '../lib/seo';
 
 const About = () => {
   return (
     <div className="about-section">
         <div className="profile-card">
-            <img src="/images/Photo.jpg" alt="Dev Nain" className="profile-img" />
+            <img src={withBasePath('/images/Photo.jpg')} alt="Dev Nain" className="profile-img" />
             
             <div className="profile-info">
                 <h2>Hello, I'm Dev Nain</h2>

@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react';
+import { withBasePath } from '../lib/seo'
 
 const MyResume = () => {
   
@@ -148,7 +149,7 @@ const MyResume = () => {
         {/* Left Side */}
         <div className="left-side">
           <div className="photo-container">
-            <img src="/images/Photo.jpg" id="myProfilePhoto" alt="Dev Nain" />
+            <img src={withBasePath('/images/Photo.jpg')} id="myProfilePhoto" alt="Dev Nain" />
           </div>
           <div>
             <h3 className="left-title">Contact</h3>

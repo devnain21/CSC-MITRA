@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
+import { withBasePath } from '../lib/seo'
 
 const Forms = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -8,18 +9,18 @@ const Forms = () => {
 
   // आपके सभी फॉर्म्स
     const formList = [
-        { title: "Aadhar Update Form", icon: "fas fa-fingerprint", link: "/forms/Aadhar_Update.pdf", category: 'id', popular: true },
-        { title: "Domicile Form", icon: "fas fa-house-user", link: "/forms/Domisial.pdf", category: 'certificate' },
-        { title: "Pan Card Apply", icon: "fas fa-id-card", link: "/forms/Form_49A.pdf", category: 'id', popular: true },
-        { title: "Birth Name Add", icon: "fas fa-baby", link: "/forms/birth-recoad-name-add.pdf", category: 'certificate' },
-        { title: "Income Self Verify", icon: "fas fa-rupee-sign", link: "/forms/income-self-verify.pdf", category: 'income' },
-        { title: "Saksham Undertaking", icon: "fas fa-file-signature", link: "/forms/saksham-undertaking.pdf", category: 'student' },
-        { title: "Matritva Sahayta Yojna", icon: "fas fa-female", link: "/forms/Mukhya-Mantri-Matritva-Sahayta-Yojna-Form.pdf", category: 'welfare', popular: true },
-        { title: "Bank NOC Form", icon: "fas fa-university", link: "/forms/Bank_NOC.pdf", category: 'bank' },
-        { title: "PM Kissan Form", icon: "fas fa-tractor", link: "/forms/PM-KISSAN-REPORT-1.pdf", category: 'kisan', popular: true },
-        { title: "Birth Certificate Correction", icon: "fas fa-utensils", link: "/forms/Birth-Certificate-Correction.pdf", category: 'certificate' },
-        { title: "Lal Dora", icon: "fas fa-user-check", link: "/forms/Lal_Dora.pdf", category: 'property' },
-        { title: "Duplicate Marksheet", icon: "fas fa-folder-open", link: "/forms/duplicate-marksheet.pdf", category: 'student' },
+      { title: "Aadhar Update Form", icon: "fas fa-fingerprint", link: withBasePath('/forms/Aadhar_Update.pdf'), category: 'id', popular: true },
+      { title: "Domicile Form", icon: "fas fa-house-user", link: withBasePath('/forms/Domisial.pdf'), category: 'certificate' },
+      { title: "Pan Card Apply", icon: "fas fa-id-card", link: withBasePath('/forms/Form_49A.pdf'), category: 'id', popular: true },
+      { title: "Birth Name Add", icon: "fas fa-baby", link: withBasePath('/forms/birth-recoad-name-add.pdf'), category: 'certificate' },
+      { title: "Income Self Verify", icon: "fas fa-rupee-sign", link: withBasePath('/forms/income-self-verify.pdf'), category: 'income' },
+      { title: "Saksham Undertaking", icon: "fas fa-file-signature", link: withBasePath('/forms/saksham-undertaking.pdf'), category: 'student' },
+      { title: "Matritva Sahayta Yojna", icon: "fas fa-female", link: withBasePath('/forms/Mukhya-Mantri-Matritva-Sahayta-Yojna-Form.pdf'), category: 'welfare', popular: true },
+      { title: "Bank NOC Form", icon: "fas fa-university", link: withBasePath('/forms/Bank_NOC.pdf'), category: 'bank' },
+      { title: "PM Kissan Form", icon: "fas fa-tractor", link: withBasePath('/forms/PM-KISSAN-REPORT-1.pdf'), category: 'kisan', popular: true },
+      { title: "Birth Certificate Correction", icon: "fas fa-utensils", link: withBasePath('/forms/Birth-Certificate-Correction.pdf'), category: 'certificate' },
+      { title: "Lal Dora", icon: "fas fa-user-check", link: withBasePath('/forms/Lal_Dora.pdf'), category: 'property' },
+      { title: "Duplicate Marksheet", icon: "fas fa-folder-open", link: withBasePath('/forms/duplicate-marksheet.pdf'), category: 'student' },
   ]
 
     const filterCounts = {

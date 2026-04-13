@@ -1,6 +1,9 @@
 const FALLBACK_SITE_URL = 'https://naincsc.netlify.app'
 
 const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || FALLBACK_SITE_URL
+const rawBasePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+
+export const siteBasePath = rawBasePath === '/' ? '' : rawBasePath.replace(/\/$/, '')
 
 export const siteConfig = {
   name: 'Nain Photostate & Online Center',
@@ -29,6 +32,11 @@ export const siteConfig = {
     region: 'Haryana',
     country: 'IN',
   },
+}
+
+export function withBasePath(path = '/') {
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  return siteBasePath ? `${siteBasePath}${normalizedPath}` : normalizedPath
 }
 
 export function getAbsoluteUrl(path = '/') {

@@ -2,7 +2,7 @@ import './globals.css'
 
 import AppShell from '@/src/components/AppShell'
 import StructuredData from '@/src/components/StructuredData'
-import { buildOrganizationSchema, siteConfig } from '@/src/lib/seo'
+import { buildOrganizationSchema, siteConfig, withBasePath } from '@/src/lib/seo'
 
 export const metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -53,7 +53,7 @@ export const metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: withBasePath('/favicon.ico'),
   },
 }
 
@@ -68,7 +68,7 @@ export default function RootLayout({ children }) {
           referrerPolicy="no-referrer"
         />
       </head>
-      <body>
+      <body style={{ '--site-background-image': `url(${withBasePath('/background.jpg')})` }}>
         <StructuredData data={buildOrganizationSchema()} />
         <AppShell>{children}</AppShell>
       </body>

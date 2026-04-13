@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --site-background-image: url('/background.jpg');
+}
+
 html,
 body {
   min-height: 100%;

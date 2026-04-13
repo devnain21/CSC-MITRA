@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+  GITHUB_PAGES = "false"
+  NEXT_PUBLIC_BASE_PATH = ""
+  NEXT_PUBLIC_SITE_URL = "https://naincsc.netlify.app"
